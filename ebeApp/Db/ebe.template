@@ -1,0 +1,240 @@
+################################################################
+#
+# Specs EBE-4 template file.
+#
+# Macros:
+#   P - Prefix for PV name
+#   PORT - Bus/Port Address (eg. ASYN Port).
+#   ADDR - Address on the bus (optional)
+#   SCAN - SCAN rate for read parameters.
+#
+################################################################
+
+#% gdatag,template,ebe4,$(gda_name=),$(gda_desc=)
+
+
+
+################################################################
+# Read Only records
+################################################################
+
+# /// Device name
+record(stringin, "$(P):DEVICENAME") {
+  field(DTYP, "stream")
+  field(INP, "@ebe4.proto getDeviceName $(PORT) $(ADDR)")
+  field(PINI, "YES")
+  field(SCAN, "Passive")
+}
+
+# /// Device uptime
+record(ai, "$(P):UPTIME") {
+  field(DTYP, "stream")
+  field(INP, "@ebe4.proto getUptime $(PORT) $(ADDR)")
+  field(PINI, "YES")
+  field(SCAN, "Passive")
+}
+
+# /// Temperature
+#% gdatag,pv,ro,$(gda_name=),TEMP
+#% archiver 10 Monitor
+#% alh
+record(ai, "$(P):TEMP") {
+  field(DTYP, "stream")
+  field(INP, "@ebe4.proto getInt(0) $(PORT) $(ADDR)")
+  field(SCAN, "$(SCAN) second")
+  field(PREC, 3)
+  field(EGU, "C")
+  field(DISV, 0)
+}
+
+# /// Water interlock
+#% gdatag,pv,ro,$(gda_name=),WATER
+#% archiver 10 Monitor
+#% alh
+record(bi, "$(P):WATER") {
+  field(DTYP, "stream")
+  field(INP, "@ebe4.proto getInt(13) $(PORT) $(ADDR)")
+  field(ZNAM, "Tripped")
+  field(ONAM, "Safe")
+  field(ZSV, "MAJOR")
+  field(SCAN, "$(SCAN) second")
+  field(DISV, 0)
+}
+
+# /// IL2 interlock
+#% gdatag,pv,ro,$(gda_name=),IL2
+#% archiver 10 Monitor
+#% alh
+record(bi, "$(P):IL2") {
+  field(DTYP, "stream")
+  field(INP, "@ebe4.proto getInt(14) $(PORT) $(ADDR)")
+  field(ZNAM, "Tripped")
+  field(ONAM, "Safe")
+  field(ZSV, "MAJOR")
+  field(SCAN, "$(SCAN) second")
+  field(DISV, 0)
+}
+
+# /// Vacuum interlock
+#% gdatag,pv,ro,$(gda_name=),VACUUM
+#% archiver 10 Monitor
+#% alh
+record(bi, "$(P):VACUUM") {
+  field(DTYP, "stream")
+  field(INP, "@ebe4.proto getInt(15) $(PORT) $(ADDR)")
+  field(ZNAM, "Tripped")
+  field(ONAM, "Safe")
+  field(ZSV, "MAJOR")
+  field(SCAN, "$(SCAN) second")
+  field(DISV, 0)
+}
+
+# /// High voltage supply current
+#% gdatag,pv,ro,$(gda_name=),IMON
+#% archiver 10 Monitor
+#% alh
+record(ai, "$(P):IMON") {
+  field(DTYP, "stream")
+  field(INP, "@ebe4.proto getInt(18) $(PORT) $(ADDR)")
+  field(SCAN, "$(SCAN) second")
+  field(PREC, 3)
+  field(EGU, "A")
+  field(DISV, 0)
+}
+
+################################################################
+# Read/Write records
+################################################################
+
+# /// Set remote mode
+#% gdatag,pv,rw,$(gda_name=),MODE
+#% autosave 1 VAL
+record(bo, "$(P):MODE") {
+  field(DTYP, "stream")
+  field(DESC, "Remote mode set")
+  field(OUT, "@ebe4.proto setRemoteMode $(PORT) $(ADDR)")
+  field(ZNAM, "Local")
+  field(ONAM, "Remote")
+}
+
+# /// High voltage
+#% gdatag,pv,rw,$(gda_name=),VOUT
+#% autosave 1 VAL
+record(ao, "$(P):VOUT") {
+  field(DTYP, "stream")
+  field(DESC, "High voltage set")
+  field(OUT, "@ebe4.proto setDouble(17) $(PORT) $(ADDR)")
+}
+#% gdatag,pv,ro,$(gda_name=),VMON
+#% archiver 10 Monitor
+#% alh
+record(ai, "$(P):VMON") {
+  field(DTYP, "stream")
+  field(INP, "@ebe4.proto getInt(19) $(PORT) $(ADDR)")
+  field(SCAN, "$(SCAN) second")
+  field(PREC, 3)
+  field(EGU, "V")
+  field(DISV, 0)
+}
+
+# /// Maximum voltage
+#% gdatag,pv,rw,$(gda_name=),VMAX
+#% autosave 1 VAL
+record(ao, "$(P):VMAX") {
+  field(DTYP, "stream")
+  field(DESC, "High voltage limit set")
+  field(OUT, "@ebe4.proto setDouble(21) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+#% gdatag,pv,rw,$(gda_name=),VMAX_RBV
+#% autosave 1 VAL
+record(ai, "$(P):VMAX_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "High voltage limit get")
+  field(INP, "@ebe4.proto getDouble(21) $(PORT) $(ADDR)")
+  field(PREC, 3)
+  field(EGU, "V")
+}
+
+# /// Enable/Disable high voltage supply
+#% gdatag,pv,rw,$(gda_name=),VSTA
+#% autosave 1 VAL
+record(bo, "$(P):VSTATE") {
+  field(DTYP, "stream")
+  field(DESC, "High voltage enable/disable")
+  field(OUT, "@ebe4.proto setInt(23) $(PORT) $(ADDR)")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+}
+#% gdatag,pv,rw,$(gda_name=),VSTA_RBV
+#% autosave 1 VAL
+record(bi, "$(P):VSTATE_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "High voltage enable/disable")
+  field(INP, "@ebe4.proto getInt(23) $(PORT) $(ADDR)")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+}
+
+# /// Shutter position
+#% gdatag,pv,rw,$(gda_name=),SHUTTER
+#% autosave 1 VAL
+record(mbbo, "$(P):SHUTTER") {
+  field(DTYP, "stream")
+  field(DESC, "Shutter position")
+  field(OUT, "@ebe4.proto setInt(128) $(PORT) $(ADDR)")
+  field(ZRVL, "0")
+  field(ZRST, "1, 2 & 4 Open")
+  field(ONVL, "1")
+  field(ONST, "All Closed")
+  field(TWVL, "2")
+  field(TWST, "2 & 3 Open")
+  field(THVL, "3")
+  field(THST, "1, 2 & 3 Open")
+  field(FRST, "All Open")
+  field(FRVL, "4")
+}
+#% gdatag,pv,rw,$(gda_name=),SHUTTER_RBV
+#% autosave 1 VAL
+record(mbbi, "$(P):SHUTTER_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "Shutter position")
+  field(INP, "@ebe4.proto getInt(128) $(PORT) $(ADDR)")
+  field(ZRVL, "0")
+  field(ZRST, "1, 2 & 4 Open")
+  field(ONVL, "1")
+  field(ONST, "All Closed")
+  field(TWVL, "2")
+  field(TWST, "2 & 3 Open")
+  field(THVL, "3")
+  field(THST, "1, 2 & 3 Open")
+  field(FRST, "All Open")
+  field(FRVL, "4")
+}
+
+#################################################################
+# Generic protocol PV, to send any command
+#################################################################
+
+# /// Generic commands
+# Do a caput on this, and do a subsequent caget to get the response. Max 39 chars.
+#% gdatag,pv,rw,$(gda_name=),RESPONSE
+record (stringin, "$(P):RESPONSE") {
+  field (DTYP, "stream")
+  field (DESC, "Holds command response.")
+  field (INP, "@ebe4.proto gen $(PORT) $(ADDR)")
+}
+
+# /// Generic command. This holds the command and stores it
+#% gdatag,pv,rw,$(gda_name=),COMMAND
+record (stringout, "$(P):COMMAND") {
+  field (DESC, "Holds command string.")
+  field (OUT, "$(P):RESPONSE")
+  field(FLNK, "$(P):RESPONSE")
+}
+
+#################################################################
+# Template substitution for pockets
+#################################################################
+
+

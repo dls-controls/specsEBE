@@ -1,0 +1,341 @@
+################################################################
+#
+# Specs EBE-4 pocket template file.
+#
+# Macros:
+#   P - Prefix for PV name
+#   PORT - Bus/Port Address (eg. ASYN Port).
+#   ADDR - Address on the bus (optional)
+#   SCAN - SCAN rate for read parameters.
+#
+################################################################
+
+#% gdatag,template,ebepocket,$(gda_name=),$(gda_desc=)
+
+################################################################
+# Read Only records
+################################################################
+
+# /// Emission Regulation Status
+#% gdatag,pv,ro,$(gda_name=),EMISSION_REG_STA
+#% archiver 10 Monitor
+#% alh
+record(mbbi, "$(P):$(POCKET):EMISSION_REG_STA") {
+  field(DTYP, "stream")
+  field(INP, "@ebe4.proto getInt($(EMISSION_REG_STA)) $(PORT) $(ADDR)")
+  field(SCAN, "$(SCAN) second")
+  field(ZRVL, "0")
+  field(ZRST, "Not in Use")
+  field(ONVL, "1")
+  field(ONST, "In Progress")
+  field(TWVL, "2")
+  field(TWST, "Regulating")
+  field(DISV, 0)
+}
+
+# /// Flux Regulation Status
+#% gdatag,pv,ro,$(gda_name=),FLUX_REG_STA
+#% archiver 10 Monitor
+#% alh
+record(mbbi, "$(P):$(POCKET):FLUX_REG_STA") {
+  field(DTYP, "stream")
+  field(INP, "@ebe4.proto getInt($(FLUX_REG_STA)) $(PORT) $(ADDR)")
+  field(SCAN, "$(SCAN) second")
+  field(ZRVL, "0")
+  field(ZRST, "Not in Use")
+  field(ONVL, "1")
+  field(ONST, "In Progress")
+  field(TWVL, "2")
+  field(TWST, "Regulating")
+  field(DISV, 0)
+}
+
+################################################################
+# Read/Write records
+################################################################
+
+# /// Regulation Type
+#% gdatag,pv,rw,$(gda_name=),FILAMENT_REG_TYPE
+#% autosave 1 VAL
+record(mbbo, "$(P):$(POCKET):FILAMENT_REG_TYPE") {
+  field(DTYP, "stream")
+  field(DESC, "Regulation type set")
+  field(OUT, "@ebe4.proto setInt($(FILAMENT_REG_TYPE)) $(PORT) $(ADDR)")
+  field(ZRVL, "0")
+  field(ZRST, "Filament")
+  field(ONVL, "1")
+  field(ONST, "Emission")
+  field(TWVL, "2")
+  field(TWST, "Flux")
+}
+#% gdatag,pv,rw,$(gda_name=),FILAMENT_REG_TYPE_RBV
+#% autosave 1 VAL
+record(mbbi, "$(P):$(POCKET):FILAMENT_REG_TYPE_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "Regulation type get")
+  field(INP, "@ebe4.proto getInt($(FILAMENT_REG_TYPE)) $(PORT) $(ADDR)")
+  field(ZRVL, "0")
+  field(ZRST, "Filament")
+  field(ONVL, "1")
+  field(ONST, "Emission")
+  field(TWVL, "2")
+  field(TWST, "Flux")
+}
+
+# Filament Parameters ##########################################
+
+# /// Filament Current
+#% gdatag,pv,rw,$(gda_name=),FILAMENT
+#% autosave 1 VAL
+record(ao, "$(P):$(POCKET):FILAMENT") {
+  field(DTYP, "stream")
+  field(DESC, "Filament current set")
+  field(OUT, "@ebe4.proto setDouble($(FILAMENT)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+#% gdatag,pv,rw,$(gda_name=),FILAMENT_RBV
+#% autosave 1 VAL
+record(ai, "$(P):$(POCKET):FILAMENT_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "Filament current get")
+  field(INP, "@ebe4.proto getDouble($(FILAMENT_RBV)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+
+# /// Filament Max
+#% gdatag,pv,rw,$(gda_name=),FILAMENT_MAX
+#% autosave 1 VAL
+record(ao, "$(P):$(POCKET):FILAMENT_MAX") {
+  field(DTYP, "stream")
+  field(DESC, "Filament max set")
+  field(OUT, "@ebe4.proto setDouble($(FILAMENT_MAX)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+#% gdatag,pv,rw,$(gda_name=),FILAMENT_MAX_RBV
+#% autosave 1 VAL
+record(ai, "$(P):$(POCKET):FILAMENT_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "Filament max get")
+  field(INP, "@ebe4.proto getDouble($(FILAMENT_MAX)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+
+# /// Filament Standby Current
+#% gdatag,pv,rw,$(gda_name=),FILAMENT_STANDBY
+#% autosave 1 VAL
+record(ao, "$(P):$(POCKET):FILAMENT_STANDBY") {
+  field(DTYP, "stream")
+  field(DESC, "Filament standby current set")
+  field(OUT, "@ebe4.proto setDouble($(FILAMENT_STANDBY)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+#% gdatag,pv,rw,$(gda_name=),FILAMENT_STANDBY_RBV
+#% autosave 1 VAL
+record(ai, "$(P):$(POCKET):FILAMENT_STANDBY_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "Filament standby current get")
+  field(INP, "@ebe4.proto getDouble($(FILAMENT_STANDBY)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+
+# Emission Parameters ##########################################
+
+# /// Emission Current
+#% gdatag,pv,rw,$(gda_name=),EMISSION
+#% autosave 1 VAL
+record(ao, "$(P):$(POCKET):EMISSION") {
+  field(DTYP, "stream")
+  field(DESC, "Filament current set")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+#% gdatag,pv,rw,$(gda_name=),EMISSION_RBV
+#% autosave 1 VAL
+record(ai, "$(P):$(POCKET):EMISSION_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "Filament current get")
+  field(INP, "@ebe4.proto getDouble($(EMISSION_RBV)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+
+# /// Emission Max
+#% gdatag,pv,rw,$(gda_name=),EMISSION_MAX
+#% autosave 1 VAL
+record(ao, "$(P):$(POCKET):EMISSION_MAX") {
+  field(DTYP, "stream")
+  field(DESC, "Emission max set")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION_MAX)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+#% gdatag,pv,rw,$(gda_name=),EMISSION_MAX_RBV
+#% autosave 1 VAL
+record(ai, "$(P):$(POCKET):EMISSION_MAX_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "Emission max get")
+  field(INP, "@ebe4.proto getDouble($(EMISSION_MAX)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+
+# /// Emission Max Power
+#% gdatag,pv,rw,$(gda_name=),EMISSION_PMAX
+#% autosave 1 VAL
+record(ao, "$(P):$(POCKET):EMISSION_PMAX") {
+  field(DTYP, "stream")
+  field(DESC, "Emission max power set")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION_PMAX)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+#% gdatag,pv,rw,$(gda_name=),EMISSION_PMAX_RBV
+#% autosave 1 VAL
+record(ai, "$(P):$(POCKET):EMISSION_PMAX_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "Emission max power get")
+  field(INP, "@ebe4.proto getDouble($(EMISSION_PMAX)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+
+# /// Emission PVal
+#% gdatag,pv,rw,$(gda_name=),EMISSION_PVAL
+#% autosave 1 VAL
+record(ao, "$(P):$(POCKET):EMISSION_PVAL") {
+  field(DTYP, "stream")
+  field(DESC, "Emission PVal set")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION_PVAL)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+#% gdatag,pv,rw,$(gda_name=),EMISSION_PVAL_RBV
+#% autosave 1 VAL
+record(ai, "$(P):$(POCKET):EMISSION_PVAL_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "Emission PVal get")
+  field(INP, "@ebe4.proto getDouble($(EMISSION_PVAL)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+
+# /// Emission IVal
+#% gdatag,pv,rw,$(gda_name=),EMISSION_IVAL
+#% autosave 1 VAL
+record(ao, "$(P):$(POCKET):EMISSION_IVAL") {
+  field(DTYP, "stream")
+  field(DESC, "Emission IVal set")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION_IVAL)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+#% gdatag,pv,rw,$(gda_name=),EMISSION_IVAL_RBV
+#% autosave 1 VAL
+record(ai, "$(P):$(POCKET):EMISSION_IVAL_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "Emission IVal get")
+  field(INP, "@ebe4.proto getDouble($(EMISSION_IVAL)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+
+# /// Emission Time Base
+#% gdatag,pv,rw,$(gda_name=),EMISSION_TIME_BASE
+#% autosave 1 VAL
+record(ao, "$(P):$(POCKET):EMISSION_TIME_BASE") {
+  field(DTYP, "stream")
+  field(DESC, "Emission Time Base set")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION_TIME_BASE)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+#% gdatag,pv,rw,$(gda_name=),EMISSION_TIME_BASE_RBV
+#% autosave 1 VAL
+record(ai, "$(P):$(POCKET):EMISSION_TIME_BASE_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "Emission Time Base get")
+  field(INP, "@ebe4.proto getDouble($(EMISSION_TIME_BASE)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+
+# Flux Parameters ##############################################
+
+# /// Flux
+#% gdatag,pv,rw,$(gda_name=),FLUX
+#% autosave 1 VAL
+record(ao, "$(P):$(POCKET):FLUX") {
+  field(DTYP, "stream")
+  field(DESC, "Flux set")
+  field(OUT, "@ebe4.proto setDouble($(FLUX)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+#% gdatag,pv,rw,$(gda_name=),FLUX_RBV
+#% autosave 1 VAL
+record(ai, "$(P):$(POCKET):FLUX_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "Flux get")
+  field(INP, "@ebe4.proto getDouble($(FLUX_RBV)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+
+# /// Flux Max
+#% gdatag,pv,rw,$(gda_name=),FLUX_MAX
+#% autosave 1 VAL
+record(ao, "$(P):$(POCKET):FLUX_MAX") {
+  field(DTYP, "stream")
+  field(DESC, "Flux max set")
+  field(OUT, "@ebe4.proto setDouble($(FLUX_MAX)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+#% gdatag,pv,rw,$(gda_name=),FLUX_MAX_RBV
+#% autosave 1 VAL
+record(ai, "$(P):$(POCKET):FLUX_MAX_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "Flux max get")
+  field(INP, "@ebe4.proto getDouble($(FLUX_MAX)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+
+# /// Flux PVal
+#% gdatag,pv,rw,$(gda_name=),FLUX_PVAL
+#% autosave 1 VAL
+record(ao, "$(P):$(POCKET):FLUX_PVAL") {
+  field(DTYP, "stream")
+  field(DESC, "Flux PVal set")
+  field(OUT, "@ebe4.proto setDouble($(FLUX_PVAL)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+#% gdatag,pv,rw,$(gda_name=),FLUX_PVAL_RBV
+#% autosave 1 VAL
+record(ai, "$(P):$(POCKET):FLUX_PVAL_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "Flux PVal get")
+  field(INP, "@ebe4.proto getDouble($(FLUX_PVAL)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+
+# /// Flux IVal
+#% gdatag,pv,rw,$(gda_name=),FLUX_IVAL
+#% autosave 1 VAL
+record(ao, "$(P):$(POCKET):FLUX_IVAL") {
+  field(DTYP, "stream")
+  field(DESC, "Flux IVal set")
+  field(OUT, "@ebe4.proto setDouble($(FLUX_IVAL)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+#% gdatag,pv,rw,$(gda_name=),FLUX_IVAL_RBV
+#% autosave 1 VAL
+record(ai, "$(P):$(POCKET):FLUX_IVAL_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "Flux IVal get")
+  field(INP, "@ebe4.proto getDouble($(FLUX_IVAL)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+
+# /// Flux Time Base
+#% gdatag,pv,rw,$(gda_name=),FLUX_TIME_BASE
+#% autosave 1 VAL
+record(ao, "$(P):$(POCKET):FLUX_TIME_BASE") {
+  field(DTYP, "stream")
+  field(DESC, "Flux time base set")
+  field(OUT, "@ebe4.proto setDouble($(FLUX_TIME_BASE)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}
+#% gdatag,pv,rw,$(gda_name=),FLUX_TIME_BASE_RBV
+#% autosave 1 VAL
+record(ai, "$(P):$(POCKET):FLUX_TIME_BASE_RBV") {
+  field(DTYP, "stream")
+  field(DESC, "Flux time base get")
+  field(INP, "@ebe4.proto getDouble($(FLUX_TIME_BASE)) $(PORT) $(ADDR)")
+  field(PREC, 3)
+}

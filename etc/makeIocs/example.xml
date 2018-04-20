@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<components arch="linux-x86_64">
+	<asyn.AsynIP name="EBEPort" port="127.0.0.1:8080 UDP"/>
+	<specsEBE.EBE4 ADDR="0" P="EBE" PORT="EBEPort" SCAN="5" name="EBE"/>
+</components>
