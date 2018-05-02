@@ -2,6 +2,9 @@ from iocbuilder import AutoSubstitution
 from iocbuilder.modules.streamDevice import AutoProtocol
 
 
+__all__ = ["EBE4"]
+
+
 class EBE4(AutoSubstitution, AutoProtocol):
 
     # Parse this template file for macros
