@@ -15,7 +15,14 @@
 
 #% gdatag,template,ebe4,$(gda_name=),$(gda_desc=)
 
-
+record(bo, "$(P):DISABLE") {
+  field(DESC, "Disable communication")
+  field(PINI, "YES")
+  field(VAL, "1")
+  field(OMSL, "supervisory")
+  field(ZNAM, "Enabled")
+  field(ONAM, "Disabled")
+}
 
 ################################################################
 # Read Only records
@@ -24,17 +31,19 @@
 # /// Device name
 record(stringin, "$(P):DEVICENAME") {
   field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
   field(INP, "@ebe4.proto getDeviceName $(PORT) $(ADDR)")
   field(PINI, "YES")
-  field(SCAN, "Passive")
+  field(SCAN, "Event")
 }
 
 # /// Device uptime
 record(ai, "$(P):UPTIME") {
   field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
   field(INP, "@ebe4.proto getUptime $(PORT) $(ADDR)")
   field(PINI, "YES")
-  field(SCAN, "Passive")
+  field(SCAN, "10 second")
 }
 
 # /// Temperature
@@ -43,11 +52,11 @@ record(ai, "$(P):UPTIME") {
 #% alh
 record(ai, "$(P):TEMP") {
   field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
   field(INP, "@ebe4.proto getInt(0) $(PORT) $(ADDR)")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
   field(EGU, "C")
-  field(DISV, 0)
 }
 
 # /// Water interlock
@@ -56,12 +65,12 @@ record(ai, "$(P):TEMP") {
 #% alh
 record(bi, "$(P):WATER") {
   field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
   field(INP, "@ebe4.proto getInt(13) $(PORT) $(ADDR)")
   field(ZNAM, "Tripped")
   field(ONAM, "Safe")
   field(ZSV, "MAJOR")
   field(SCAN, "$(SCAN) second")
-  field(DISV, 0)
 }
 
 # /// IL2 interlock
@@ -70,12 +79,12 @@ record(bi, "$(P):WATER") {
 #% alh
 record(bi, "$(P):IL2") {
   field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
   field(INP, "@ebe4.proto getInt(14) $(PORT) $(ADDR)")
   field(ZNAM, "Tripped")
   field(ONAM, "Safe")
   field(ZSV, "MAJOR")
   field(SCAN, "$(SCAN) second")
-  field(DISV, 0)
 }
 
 # /// Vacuum interlock
@@ -84,12 +93,12 @@ record(bi, "$(P):IL2") {
 #% alh
 record(bi, "$(P):VACUUM") {
   field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
   field(INP, "@ebe4.proto getInt(15) $(PORT) $(ADDR)")
   field(ZNAM, "Tripped")
   field(ONAM, "Safe")
   field(ZSV, "MAJOR")
   field(SCAN, "$(SCAN) second")
-  field(DISV, 0)
 }
 
 # /// High voltage supply current
@@ -98,11 +107,11 @@ record(bi, "$(P):VACUUM") {
 #% alh
 record(ai, "$(P):IMON") {
   field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
   field(INP, "@ebe4.proto getInt(18) $(PORT) $(ADDR)")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
   field(EGU, "A")
-  field(DISV, 0)
 }
 
 ################################################################
@@ -114,6 +123,7 @@ record(ai, "$(P):IMON") {
 #% autosave 1 VAL
 record(bo, "$(P):MODE") {
   field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
   field(DESC, "Remote mode set")
   field(OUT, "@ebe4.proto setRemoteMode $(PORT) $(ADDR)")
   field(ZNAM, "Local")
@@ -125,6 +135,7 @@ record(bo, "$(P):MODE") {
 #% autosave 1 VAL
 record(ao, "$(P):VOUT") {
   field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
   field(DESC, "High voltage set")
   field(OUT, "@ebe4.proto setDouble(17) $(PORT) $(ADDR)")
 }
@@ -133,11 +144,11 @@ record(ao, "$(P):VOUT") {
 #% alh
 record(ai, "$(P):VMON") {
   field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
   field(INP, "@ebe4.proto getInt(19) $(PORT) $(ADDR)")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
   field(EGU, "V")
-  field(DISV, 0)
 }
 
 # /// Maximum voltage
@@ -145,6 +156,7 @@ record(ai, "$(P):VMON") {
 #% autosave 1 VAL
 record(ao, "$(P):VMAX") {
   field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
   field(DESC, "High voltage limit set")
   field(OUT, "@ebe4.proto setDouble(21) $(PORT) $(ADDR)")
   field(PREC, 3)
@@ -153,6 +165,7 @@ record(ao, "$(P):VMAX") {
 #% autosave 1 VAL
 record(ai, "$(P):VMAX_RBV") {
   field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
   field(DESC, "High voltage limit get")
   field(INP, "@ebe4.proto getDouble(21) $(PORT) $(ADDR)")
   field(SCAN, "$(SCAN) second")
@@ -165,6 +178,7 @@ record(ai, "$(P):VMAX_RBV") {
 #% autosave 1 VAL
 record(bo, "$(P):VSTATE") {
   field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
   field(DESC, "High voltage enable/disable")
   field(OUT, "@ebe4.proto setInt(23) $(PORT) $(ADDR)")
   field(ZNAM, "Off")
@@ -174,6 +188,7 @@ record(bo, "$(P):VSTATE") {
 #% autosave 1 VAL
 record(bi, "$(P):VSTATE_RBV") {
   field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
   field(DESC, "High voltage enable/disable")
   field(INP, "@ebe4.proto getInt(23) $(PORT) $(ADDR)")
   field(SCAN, "$(SCAN) second")
@@ -186,6 +201,7 @@ record(bi, "$(P):VSTATE_RBV") {
 #% autosave 1 VAL
 record(mbbo, "$(P):SHUTTER") {
   field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
   field(DESC, "Shutter position")
   field(OUT, "@ebe4.proto setInt(128) $(PORT) $(ADDR)")
   field(ZRVL, "0")
@@ -203,6 +219,7 @@ record(mbbo, "$(P):SHUTTER") {
 #% autosave 1 VAL
 record(mbbi, "$(P):SHUTTER_RBV") {
   field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
   field(DESC, "Shutter position")
   field(INP, "@ebe4.proto getInt(128) $(PORT) $(ADDR)")
   field(SCAN, "$(SCAN) second")
@@ -225,16 +242,17 @@ record(mbbi, "$(P):SHUTTER_RBV") {
 # /// Generic commands
 # Do a caput on this, and do a subsequent caget to get the response. Max 39 chars.
 #% gdatag,pv,rw,$(gda_name=),RESPONSE
-record (stringin, "$(P):RESPONSE") {
-  field (DTYP, "stream")
-  field (DESC, "Holds command response.")
-  field (INP, "@ebe4.proto gen $(PORT) $(ADDR)")
+record(stringin, "$(P):RESPONSE") {
+  field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
+  field(DESC, "Holds command response.")
+  field(INP, "@ebe4.proto gen $(PORT) $(ADDR)")
 }
 
 # /// Generic command. This holds the command and stores it
 #% gdatag,pv,rw,$(gda_name=),COMMAND
-record (stringout, "$(P):COMMAND") {
-  field (DESC, "Holds command string.")
-  field (OUT, "$(P):RESPONSE")
+record(stringout, "$(P):COMMAND") {
+  field(DESC, "Holds command string.")
+  field(OUT, "$(P):RESPONSE")
   field(FLNK, "$(P):RESPONSE")
 }
