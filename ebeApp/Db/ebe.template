@@ -10,6 +10,9 @@
 #
 ################################################################
 
+# This associates the template with an edm screen
+# % gui, $(PORT), edm, ebe4.edl, P=$(P)
+
 #% gdatag,template,ebe4,$(gda_name=),$(gda_desc=)
 
 
