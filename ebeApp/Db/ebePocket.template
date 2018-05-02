@@ -113,7 +113,7 @@ record(ao, "$(P):$(POCKET):FILAMENT_MAX") {
 }
 #% gdatag,pv,rw,$(gda_name=),FILAMENT_MAX_RBV
 #% autosave 1 VAL
-record(ai, "$(P):$(POCKET):FILAMENT_RBV") {
+record(ai, "$(P):$(POCKET):FILAMENT_MAX_RBV") {
   field(DTYP, "stream")
   field(DESC, "Filament max get")
   field(INP, "@ebe4.proto getDouble($(FILAMENT_MAX)) $(PORT) $(ADDR)")
