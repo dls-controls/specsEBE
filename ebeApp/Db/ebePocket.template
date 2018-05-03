@@ -23,7 +23,7 @@
 record(mbbi, "$(P):$(POCKET):EMISSION_REG_STA") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
-  field(INP, "@ebe4.proto getInt($(EMISSION_REG_STA)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getInt($(EMISSION_REG_STA)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(ZRVL, "0")
   field(ZRST, "Not in Use")
@@ -40,7 +40,7 @@ record(mbbi, "$(P):$(POCKET):EMISSION_REG_STA") {
 record(mbbi, "$(P):$(POCKET):FLUX_REG_STA") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
-  field(INP, "@ebe4.proto getInt($(FLUX_REG_STA)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getInt($(FLUX_REG_STA)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(ZRVL, "0")
   field(ZRST, "Not in Use")
@@ -61,7 +61,7 @@ record(mbbo, "$(P):$(POCKET):FILAMENT_REG_TYPE") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Regulation type set")
-  field(OUT, "@ebe4.proto setInt($(FILAMENT_REG_TYPE)) $(PORT) $(ADDR)")
+  field(OUT, "@ebe4.proto setInt($(FILAMENT_REG_TYPE)) $(PORT) 0")
   field(ZRVL, "0")
   field(ZRST, "Filament")
   field(ONVL, "1")
@@ -75,7 +75,7 @@ record(mbbi, "$(P):$(POCKET):FILAMENT_REG_TYPE_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Regulation type get")
-  field(INP, "@ebe4.proto getInt($(FILAMENT_REG_TYPE)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getInt($(FILAMENT_REG_TYPE)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(ZRVL, "0")
   field(ZRST, "Filament")
@@ -94,7 +94,7 @@ record(ao, "$(P):$(POCKET):FILAMENT") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament current set")
-  field(OUT, "@ebe4.proto setDouble($(FILAMENT)) $(PORT) $(ADDR)")
+  field(OUT, "@ebe4.proto setDouble($(FILAMENT)) $(PORT) 0")
   field(PREC, 3)
 }
 #% gdatag,pv,rw,$(gda_name=),FILAMENT_RBV
@@ -103,7 +103,7 @@ record(ai, "$(P):$(POCKET):FILAMENT_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament current get")
-  field(INP, "@ebe4.proto getDouble($(FILAMENT_RBV)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getDouble($(FILAMENT_RBV)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
 }
@@ -115,7 +115,7 @@ record(ao, "$(P):$(POCKET):FILAMENT_MAX") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament max set")
-  field(OUT, "@ebe4.proto setDouble($(FILAMENT_MAX)) $(PORT) $(ADDR)")
+  field(OUT, "@ebe4.proto setDouble($(FILAMENT_MAX)) $(PORT) 0")
   field(PREC, 3)
 }
 #% gdatag,pv,rw,$(gda_name=),FILAMENT_MAX_RBV
@@ -124,7 +124,7 @@ record(ai, "$(P):$(POCKET):FILAMENT_MAX_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament max get")
-  field(INP, "@ebe4.proto getDouble($(FILAMENT_MAX)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getDouble($(FILAMENT_MAX)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
 }
@@ -136,7 +136,7 @@ record(ao, "$(P):$(POCKET):FILAMENT_STANDBY") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament standby current set")
-  field(OUT, "@ebe4.proto setDouble($(FILAMENT_STANDBY)) $(PORT) $(ADDR)")
+  field(OUT, "@ebe4.proto setDouble($(FILAMENT_STANDBY)) $(PORT) 0")
   field(PREC, 3)
 }
 #% gdatag,pv,rw,$(gda_name=),FILAMENT_STANDBY_RBV
@@ -145,7 +145,7 @@ record(ai, "$(P):$(POCKET):FILAMENT_STANDBY_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament standby current get")
-  field(INP, "@ebe4.proto getDouble($(FILAMENT_STANDBY)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getDouble($(FILAMENT_STANDBY)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
 }
@@ -159,7 +159,7 @@ record(ao, "$(P):$(POCKET):EMISSION") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament current set")
-  field(OUT, "@ebe4.proto setDouble($(EMISSION)) $(PORT) $(ADDR)")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION)) $(PORT) 0")
   field(PREC, 3)
 }
 #% gdatag,pv,rw,$(gda_name=),EMISSION_RBV
@@ -168,7 +168,7 @@ record(ai, "$(P):$(POCKET):EMISSION_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament current get")
-  field(INP, "@ebe4.proto getDouble($(EMISSION_RBV)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getDouble($(EMISSION_RBV)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
 }
@@ -180,7 +180,7 @@ record(ao, "$(P):$(POCKET):EMISSION_MAX") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Emission max set")
-  field(OUT, "@ebe4.proto setDouble($(EMISSION_MAX)) $(PORT) $(ADDR)")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION_MAX)) $(PORT) 0")
   field(PREC, 3)
 }
 #% gdatag,pv,rw,$(gda_name=),EMISSION_MAX_RBV
@@ -189,7 +189,7 @@ record(ai, "$(P):$(POCKET):EMISSION_MAX_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Emission max get")
-  field(INP, "@ebe4.proto getDouble($(EMISSION_MAX)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getDouble($(EMISSION_MAX)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
 }
@@ -201,7 +201,7 @@ record(ao, "$(P):$(POCKET):EMISSION_PMAX") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Emission max power set")
-  field(OUT, "@ebe4.proto setDouble($(EMISSION_PMAX)) $(PORT) $(ADDR)")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION_PMAX)) $(PORT) 0")
   field(PREC, 3)
 }
 #% gdatag,pv,rw,$(gda_name=),EMISSION_PMAX_RBV
@@ -210,7 +210,7 @@ record(ai, "$(P):$(POCKET):EMISSION_PMAX_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Emission max power get")
-  field(INP, "@ebe4.proto getDouble($(EMISSION_PMAX)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getDouble($(EMISSION_PMAX)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
 }
@@ -222,7 +222,7 @@ record(ao, "$(P):$(POCKET):EMISSION_PVAL") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Emission PVal set")
-  field(OUT, "@ebe4.proto setDouble($(EMISSION_PVAL)) $(PORT) $(ADDR)")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION_PVAL)) $(PORT) 0")
   field(PREC, 3)
 }
 #% gdatag,pv,rw,$(gda_name=),EMISSION_PVAL_RBV
@@ -231,7 +231,7 @@ record(ai, "$(P):$(POCKET):EMISSION_PVAL_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Emission PVal get")
-  field(INP, "@ebe4.proto getDouble($(EMISSION_PVAL)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getDouble($(EMISSION_PVAL)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
 }
@@ -243,7 +243,7 @@ record(ao, "$(P):$(POCKET):EMISSION_IVAL") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Emission IVal set")
-  field(OUT, "@ebe4.proto setDouble($(EMISSION_IVAL)) $(PORT) $(ADDR)")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION_IVAL)) $(PORT) 0")
   field(PREC, 3)
 }
 #% gdatag,pv,rw,$(gda_name=),EMISSION_IVAL_RBV
@@ -252,7 +252,7 @@ record(ai, "$(P):$(POCKET):EMISSION_IVAL_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Emission IVal get")
-  field(INP, "@ebe4.proto getDouble($(EMISSION_IVAL)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getDouble($(EMISSION_IVAL)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
 }
@@ -264,7 +264,7 @@ record(ao, "$(P):$(POCKET):EMISSION_TIME_BASE") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Emission Time Base set")
-  field(OUT, "@ebe4.proto setDouble($(EMISSION_TIME_BASE)) $(PORT) $(ADDR)")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION_TIME_BASE)) $(PORT) 0")
   field(PREC, 3)
 }
 #% gdatag,pv,rw,$(gda_name=),EMISSION_TIME_BASE_RBV
@@ -273,7 +273,7 @@ record(ai, "$(P):$(POCKET):EMISSION_TIME_BASE_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Emission Time Base get")
-  field(INP, "@ebe4.proto getDouble($(EMISSION_TIME_BASE)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getDouble($(EMISSION_TIME_BASE)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
 }
@@ -287,7 +287,7 @@ record(ao, "$(P):$(POCKET):FLUX") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Flux set")
-  field(OUT, "@ebe4.proto setDouble($(FLUX)) $(PORT) $(ADDR)")
+  field(OUT, "@ebe4.proto setDouble($(FLUX)) $(PORT) 0")
   field(PREC, 3)
 }
 #% gdatag,pv,rw,$(gda_name=),FLUX_RBV
@@ -296,7 +296,7 @@ record(ai, "$(P):$(POCKET):FLUX_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Flux get")
-  field(INP, "@ebe4.proto getDouble($(FLUX_RBV)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getDouble($(FLUX_RBV)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
 }
@@ -308,7 +308,7 @@ record(ao, "$(P):$(POCKET):FLUX_MAX") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Flux max set")
-  field(OUT, "@ebe4.proto setDouble($(FLUX_MAX)) $(PORT) $(ADDR)")
+  field(OUT, "@ebe4.proto setDouble($(FLUX_MAX)) $(PORT) 0")
   field(PREC, 3)
 }
 #% gdatag,pv,rw,$(gda_name=),FLUX_MAX_RBV
@@ -317,7 +317,7 @@ record(ai, "$(P):$(POCKET):FLUX_MAX_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Flux max get")
-  field(INP, "@ebe4.proto getDouble($(FLUX_MAX)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getDouble($(FLUX_MAX)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
 }
@@ -329,7 +329,7 @@ record(ao, "$(P):$(POCKET):FLUX_PVAL") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Flux PVal set")
-  field(OUT, "@ebe4.proto setDouble($(FLUX_PVAL)) $(PORT) $(ADDR)")
+  field(OUT, "@ebe4.proto setDouble($(FLUX_PVAL)) $(PORT) 0")
   field(PREC, 3)
 }
 #% gdatag,pv,rw,$(gda_name=),FLUX_PVAL_RBV
@@ -338,7 +338,7 @@ record(ai, "$(P):$(POCKET):FLUX_PVAL_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Flux PVal get")
-  field(INP, "@ebe4.proto getDouble($(FLUX_PVAL)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getDouble($(FLUX_PVAL)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
 }
@@ -350,7 +350,7 @@ record(ao, "$(P):$(POCKET):FLUX_IVAL") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Flux IVal set")
-  field(OUT, "@ebe4.proto setDouble($(FLUX_IVAL)) $(PORT) $(ADDR)")
+  field(OUT, "@ebe4.proto setDouble($(FLUX_IVAL)) $(PORT) 0")
   field(PREC, 3)
 }
 #% gdatag,pv,rw,$(gda_name=),FLUX_IVAL_RBV
@@ -359,7 +359,7 @@ record(ai, "$(P):$(POCKET):FLUX_IVAL_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Flux IVal get")
-  field(INP, "@ebe4.proto getDouble($(FLUX_IVAL)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getDouble($(FLUX_IVAL)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
 }
@@ -371,7 +371,7 @@ record(ao, "$(P):$(POCKET):FLUX_TIME_BASE") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Flux time base set")
-  field(OUT, "@ebe4.proto setDouble($(FLUX_TIME_BASE)) $(PORT) $(ADDR)")
+  field(OUT, "@ebe4.proto setDouble($(FLUX_TIME_BASE)) $(PORT) 0")
   field(PREC, 3)
 }
 #% gdatag,pv,rw,$(gda_name=),FLUX_TIME_BASE_RBV
@@ -380,7 +380,7 @@ record(ai, "$(P):$(POCKET):FLUX_TIME_BASE_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Flux time base get")
-  field(INP, "@ebe4.proto getDouble($(FLUX_TIME_BASE)) $(PORT) $(ADDR)")
+  field(INP, "@ebe4.proto getDouble($(FLUX_TIME_BASE)) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(PREC, 3)
 }
