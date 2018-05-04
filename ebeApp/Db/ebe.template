@@ -13,8 +13,8 @@
 # This associates the template with an edm screen
 # % gui, $(PORT), edm, ebe4.edl, P=$(P)
 
+# /// Disable communication - Stop errors when device is not connected
 #% gdatag,template,ebe4,$(gda_name=),$(gda_desc=)
-
 record(bo, "$(P):DISABLE") {
   field(DESC, "Disable communication")
   field(PINI, "YES")
@@ -34,7 +34,7 @@ record(stringin, "$(P):DEVICENAME") {
   field(SDIS, "$(P):DISABLE")
   field(INP, "@ebe4.proto getDeviceName $(PORT) 0")
   field(PINI, "YES")
-  field(SCAN, "Event")
+  field(SCAN, "10 second")
 }
 
 # /// Device uptime
@@ -104,13 +104,12 @@ record(bi, "$(P):VACUUM") {
 # /// High voltage supply current
 #% gdatag,pv,ro,$(gda_name=),IMON
 #% archiver 10 Monitor
-#% alh
 record(ai, "$(P):IMON") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(INP, "@ebe4.proto getInt(18) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
-  field(PREC, 3)
+  field(PREC, 2)
   field(EGU, "A")
 }
 
@@ -120,7 +119,6 @@ record(ai, "$(P):IMON") {
 
 # /// Set remote mode
 #% gdatag,pv,rw,$(gda_name=),MODE
-#% autosave 1 VAL
 record(bo, "$(P):MODE") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -128,11 +126,11 @@ record(bo, "$(P):MODE") {
   field(OUT, "@ebe4.proto setRemoteMode $(PORT) 0")
   field(ZNAM, "Local")
   field(ONAM, "Remote")
+  field(VAL, "1")
 }
 
 # /// High voltage
 #% gdatag,pv,rw,$(gda_name=),VOUT
-#% autosave 1 VAL
 record(ao, "$(P):VOUT") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -141,13 +139,12 @@ record(ao, "$(P):VOUT") {
 }
 #% gdatag,pv,ro,$(gda_name=),VMON
 #% archiver 10 Monitor
-#% alh
 record(ai, "$(P):VMON") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(INP, "@ebe4.proto getInt(19) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
-  field(PREC, 3)
+  field(PREC, 2)
   field(EGU, "V")
 }
 
@@ -159,23 +156,22 @@ record(ao, "$(P):VMAX") {
   field(SDIS, "$(P):DISABLE")
   field(DESC, "High voltage limit set")
   field(OUT, "@ebe4.proto setDouble(21) $(PORT) 0")
-  field(PREC, 3)
+  field(PREC, 2)
 }
 #% gdatag,pv,rw,$(gda_name=),VMAX_RBV
-#% autosave 1 VAL
 record(ai, "$(P):VMAX_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "High voltage limit get")
   field(INP, "@ebe4.proto getDouble(21) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
-  field(PREC, 3)
+  field(PREC, 2)
   field(EGU, "V")
+  field(ADEL, "1")
 }
 
 # /// Enable/Disable high voltage supply
 #% gdatag,pv,rw,$(gda_name=),VSTA
-#% autosave 1 VAL
 record(bo, "$(P):VSTATE") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -185,7 +181,7 @@ record(bo, "$(P):VSTATE") {
   field(ONAM, "On")
 }
 #% gdatag,pv,rw,$(gda_name=),VSTA_RBV
-#% autosave 1 VAL
+#% archiver 10 Monitor
 record(bi, "$(P):VSTATE_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -198,7 +194,6 @@ record(bi, "$(P):VSTATE_RBV") {
 
 # /// Shutter position
 #% gdatag,pv,rw,$(gda_name=),SHUTTER
-#% autosave 1 VAL
 record(mbbo, "$(P):SHUTTER") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -216,7 +211,7 @@ record(mbbo, "$(P):SHUTTER") {
   field(FRVL, "4")
 }
 #% gdatag,pv,rw,$(gda_name=),SHUTTER_RBV
-#% autosave 1 VAL
+#% archiver 10 Monitor
 record(mbbi, "$(P):SHUTTER_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
