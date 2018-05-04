@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 623
-y 51
-w 436
-h 372
+x 635
+y 245
+w 441
+h 371
 font "helvetica-medium-r-18.0"
 ctlFont "helvetica-medium-r-18.0"
 btnFont "helvetica-medium-r-18.0"
@@ -157,14 +157,14 @@ minor 0
 release 1
 x 5
 y 300
-w 425
+w 430
 h 0
 lineColor index 14
 fillColor index 3
 numPoints 2
 xPoints {
   0 5
-  1 430
+  1 435
 }
 yPoints {
   0 300
@@ -751,7 +751,7 @@ major 4
 minor 6
 release 0
 x 300
-y 270
+y 265
 w 90
 h 20
 controlPv "$(P):VMAX_RBV"
@@ -776,8 +776,8 @@ beginObjectProperties
 major 10
 minor 0
 release 0
-x 165
-y 270
+x 170
+y 265
 w 90
 h 20
 controlPv "$(P):VMAX"
@@ -853,7 +853,7 @@ y 185
 w 65
 h 20
 controlPv "$(P):1:EMISSION_PMAX_RBV"
-format "exponential"
+format "decimal"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 16
@@ -879,7 +879,7 @@ y 185
 w 65
 h 20
 controlPv "$(P):2:EMISSION_PMAX_RBV"
-format "exponential"
+format "decimal"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 16
@@ -905,7 +905,7 @@ y 185
 w 65
 h 20
 controlPv "$(P):3:EMISSION_PMAX_RBV"
-format "exponential"
+format "decimal"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 16
@@ -931,7 +931,7 @@ y 185
 w 65
 h 20
 controlPv "$(P):4:EMISSION_PMAX_RBV"
-format "exponential"
+format "decimal"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 16
@@ -1086,14 +1086,14 @@ minor 1
 release 1
 x 5
 y 270
-w 132
+w 123
 h 16
 font "arial-bold-r-14.0"
 fgColor index 10
 bgColor index 3
 useDisplayBg
 value {
-  "High Volatage Max"
+  "High Voltage Max"
 }
 autoSize
 endObjectProperties

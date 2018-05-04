@@ -46,19 +46,6 @@ record(ai, "$(P):UPTIME") {
   field(SCAN, "10 second")
 }
 
-# /// Temperature
-#% gdatag,pv,ro,$(gda_name=),TEMP
-#% archiver 10 Monitor
-#% alh
-record(ai, "$(P):TEMP") {
-  field(DTYP, "stream")
-  field(SDIS, "$(P):DISABLE")
-  field(INP, "@ebe4.proto getInt(0) $(PORT) 0")
-  field(SCAN, "$(SCAN) second")
-  field(PREC, 3)
-  field(EGU, "C")
-}
-
 # /// Water interlock
 #% gdatag,pv,ro,$(gda_name=),WATER
 #% archiver 10 Monitor
@@ -127,6 +114,15 @@ record(bo, "$(P):MODE") {
   field(ZNAM, "Local")
   field(ONAM, "Remote")
   field(VAL, "1")
+}
+
+# /// Clear error status
+#% gdatag,pv,rw,$(gda_name=),CLEAR_ERROR
+record(bo, "$(P):CLEAR_ERROR") {
+  field(DTYP, "stream")
+  field(SDIS, "$(P):DISABLE")
+  field(DESC, "Clear error status")
+  field(OUT, "@ebe4.proto setClearError $(PORT) 0")
 }
 
 # /// High voltage

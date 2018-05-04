@@ -52,6 +52,13 @@ record(mbbi, "$(P):$(POCKET):FLUX_REG_STA") {
 # Read/Write records
 ################################################################
 
+# /// Pocket Label
+#% gdatag,pv,rw,$(gda_name=),LABEL
+#% autosave 1 VAL
+record(stringout, "$(P):$(POCKET):LABEL") {
+  field(DESC, "User label for pocket")
+}
+
 # /// Regulation Type
 #% gdatag,pv,rw,$(gda_name=),FILAMENT_REG_TYPE
 record(mbbo, "$(P):$(POCKET):FILAMENT_REG_TYPE") {

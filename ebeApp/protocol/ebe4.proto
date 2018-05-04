@@ -101,7 +101,7 @@ setRemoteMode {
 }
 
 # /// Clear error status
-clearError {
+setClearError {
    out "\$RequestTag SetClearError"
    in "\$ResponseTag SetClearError OK";
    @mismatch {

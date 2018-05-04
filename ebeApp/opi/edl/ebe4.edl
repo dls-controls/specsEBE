@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 180
-y 103
-w 444
-h 541
+x 189
+y 245
+w 442
+h 529
 font "helvetica-medium-r-18.0"
 ctlFont "helvetica-medium-r-18.0"
 btnFont "helvetica-medium-r-18.0"
@@ -51,7 +51,7 @@ major 4
 minor 6
 release 0
 x 125
-y 240
+y 260
 w 65
 h 20
 controlPv "$(P):1:FLUX_RBV"
@@ -77,7 +77,7 @@ major 4
 minor 0
 release 0
 x 125
-y 405
+y 425
 w 300
 h 20
 fgColor index 14
@@ -97,7 +97,7 @@ major 4
 minor 0
 release 1
 x 5
-y 330
+y 350
 w 430
 h 0
 lineColor index 14
@@ -108,8 +108,8 @@ xPoints {
   1 435
 }
 yPoints {
-  0 330
-  1 330
+  0 350
+  1 350
 }
 endObjectProperties
 
@@ -120,7 +120,7 @@ major 4
 minor 0
 release 1
 x 5
-y 440
+y 460
 w 430
 h 0
 lineColor index 14
@@ -131,8 +131,8 @@ xPoints {
   1 435
 }
 yPoints {
-  0 440
-  1 440
+  0 460
+  1 460
 }
 endObjectProperties
 
@@ -143,7 +143,7 @@ major 4
 minor 1
 release 1
 x 15
-y 100
+y 120
 w 65
 h 18
 font "arial-medium-r-16.0"
@@ -163,7 +163,7 @@ major 4
 minor 6
 release 0
 x 205
-y 240
+y 260
 w 65
 h 20
 controlPv "$(P):2:FLUX_RBV"
@@ -189,7 +189,7 @@ major 4
 minor 6
 release 0
 x 285
-y 240
+y 260
 w 65
 h 20
 controlPv "$(P):3:FLUX_RBV"
@@ -215,7 +215,7 @@ major 4
 minor 6
 release 0
 x 365
-y 240
+y 260
 w 65
 h 20
 controlPv "$(P):4:FLUX_RBV"
@@ -325,7 +325,7 @@ major 4
 minor 6
 release 0
 x 125
-y 170
+y 190
 w 65
 h 20
 controlPv "$(P):1:EMISSION_RBV"
@@ -351,7 +351,7 @@ major 4
 minor 1
 release 1
 x 15
-y 150
+y 170
 w 70
 h 18
 font "arial-medium-r-16.0"
@@ -371,7 +371,7 @@ major 4
 minor 6
 release 0
 x 205
-y 170
+y 190
 w 65
 h 20
 controlPv "$(P):2:EMISSION_RBV"
@@ -397,7 +397,7 @@ major 4
 minor 6
 release 0
 x 285
-y 170
+y 190
 w 65
 h 20
 controlPv "$(P):3:EMISSION_RBV"
@@ -423,7 +423,7 @@ major 4
 minor 6
 release 0
 x 365
-y 170
+y 190
 w 65
 h 20
 controlPv "$(P):4:EMISSION_RBV"
@@ -449,11 +449,11 @@ major 4
 minor 6
 release 0
 x 125
-y 120
+y 140
 w 65
 h 20
 controlPv "$(P):1:FILAMENT_RBV"
-format "exponential"
+format "decimal"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 16
@@ -475,11 +475,11 @@ major 4
 minor 6
 release 0
 x 205
-y 120
+y 140
 w 65
 h 20
 controlPv "$(P):2:FILAMENT_RBV"
-format "exponential"
+format "decimal"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 16
@@ -501,11 +501,11 @@ major 4
 minor 6
 release 0
 x 285
-y 120
+y 140
 w 65
 h 20
 controlPv "$(P):3:FILAMENT_RBV"
-format "exponential"
+format "decimal"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 16
@@ -527,11 +527,11 @@ major 4
 minor 6
 release 0
 x 365
-y 120
+y 140
 w 65
 h 20
 controlPv "$(P):4:FILAMENT_RBV"
-format "exponential"
+format "decimal"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 16
@@ -553,7 +553,7 @@ major 4
 minor 1
 release 1
 x 15
-y 220
+y 240
 w 31
 h 18
 font "arial-medium-r-16.0"
@@ -573,7 +573,7 @@ major 10
 minor 0
 release 0
 x 125
-y 100
+y 120
 w 65
 h 20
 controlPv "$(P):1:FILAMENT"
@@ -591,7 +591,7 @@ major 10
 minor 0
 release 0
 x 205
-y 100
+y 120
 w 65
 h 20
 controlPv "$(P):2:FILAMENT"
@@ -609,7 +609,7 @@ major 10
 minor 0
 release 0
 x 285
-y 100
+y 120
 w 65
 h 20
 controlPv "$(P):3:FILAMENT"
@@ -627,7 +627,7 @@ major 10
 minor 0
 release 0
 x 365
-y 100
+y 120
 w 65
 h 20
 controlPv "$(P):4:FILAMENT"
@@ -645,7 +645,7 @@ major 10
 minor 0
 release 0
 x 125
-y 150
+y 170
 w 65
 h 20
 controlPv "$(P):1:EMISSION"
@@ -663,7 +663,7 @@ major 10
 minor 0
 release 0
 x 125
-y 220
+y 240
 w 65
 h 20
 controlPv "$(P):1:FLUX"
@@ -681,7 +681,7 @@ major 10
 minor 0
 release 0
 x 205
-y 220
+y 240
 w 65
 h 20
 controlPv "$(P):2:FLUX"
@@ -699,7 +699,7 @@ major 10
 minor 0
 release 0
 x 285
-y 220
+y 240
 w 65
 h 20
 controlPv "$(P):3:FLUX"
@@ -717,7 +717,7 @@ major 10
 minor 0
 release 0
 x 365
-y 220
+y 240
 w 65
 h 20
 controlPv "$(P):4:FLUX"
@@ -735,7 +735,7 @@ major 10
 minor 0
 release 0
 x 125
-y 345
+y 365
 w 90
 h 20
 controlPv "$(P):VOUT"
@@ -753,7 +753,7 @@ major 4
 minor 6
 release 0
 x 230
-y 345
+y 365
 w 90
 h 20
 controlPv "$(P):VMON"
@@ -779,7 +779,7 @@ major 4
 minor 6
 release 0
 x 340
-y 345
+y 365
 w 90
 h 20
 controlPv "$(P):IMON"
@@ -805,7 +805,7 @@ major 4
 minor 0
 release 0
 x 125
-y 370
+y 390
 w 195
 h 20
 fgColor index 14
@@ -825,7 +825,7 @@ major 4
 minor 1
 release 1
 x 15
-y 345
+y 365
 w 99
 h 18
 font "arial-medium-r-16.0"
@@ -870,7 +870,7 @@ major 4
 minor 0
 release 0
 x 345
-y 375
+y 395
 w 80
 h 10
 controlPv "$(P):VSTATE_RBV"
@@ -886,9 +886,9 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 365
+x 360
 y 45
-w 65
+w 70
 h 20
 fgColor index 14
 bgColor index 3
@@ -929,7 +929,7 @@ major 4
 minor 1
 release 1
 x 15
-y 405
+y 425
 w 53
 h 18
 font "arial-medium-r-16.0"
@@ -949,7 +949,7 @@ major 4
 minor 1
 release 1
 x 15
-y 290
+y 310
 w 82
 h 18
 font "arial-medium-r-16.0"
@@ -969,7 +969,7 @@ major 4
 minor 0
 release 0
 x 125
-y 290
+y 310
 w 65
 h 20
 fgColor index 14
@@ -989,7 +989,7 @@ major 4
 minor 0
 release 0
 x 205
-y 290
+y 310
 w 65
 h 20
 fgColor index 14
@@ -1009,7 +1009,7 @@ major 4
 minor 0
 release 0
 x 285
-y 290
+y 310
 w 65
 h 20
 fgColor index 14
@@ -1029,7 +1029,7 @@ major 4
 minor 0
 release 0
 x 365
-y 290
+y 310
 w 65
 h 20
 fgColor index 14
@@ -1049,7 +1049,7 @@ major 4
 minor 6
 release 0
 x 125
-y 190
+y 210
 w 65
 h 20
 controlPv "$(P):1:EMISSION_REG_STA"
@@ -1074,7 +1074,7 @@ major 4
 minor 6
 release 0
 x 205
-y 190
+y 210
 w 65
 h 20
 controlPv "$(P):2:EMISSION_REG_STA"
@@ -1099,7 +1099,7 @@ major 4
 minor 6
 release 0
 x 285
-y 190
+y 210
 w 65
 h 20
 controlPv "$(P):3:EMISSION_REG_STA"
@@ -1124,7 +1124,7 @@ major 4
 minor 6
 release 0
 x 365
-y 190
+y 210
 w 65
 h 20
 controlPv "$(P):4:EMISSION_REG_STA"
@@ -1149,7 +1149,7 @@ major 4
 minor 6
 release 0
 x 125
-y 260
+y 280
 w 65
 h 20
 controlPv "$(P):1:FLUX_REG_STA"
@@ -1174,7 +1174,7 @@ major 4
 minor 6
 release 0
 x 205
-y 260
+y 280
 w 65
 h 20
 controlPv "$(P):2:FLUX_REG_STA"
@@ -1199,7 +1199,7 @@ major 4
 minor 6
 release 0
 x 285
-y 260
+y 280
 w 65
 h 20
 controlPv "$(P):3:FLUX_REG_STA"
@@ -1224,7 +1224,7 @@ major 4
 minor 6
 release 0
 x 365
-y 260
+y 280
 w 65
 h 20
 controlPv "$(P):4:FLUX_REG_STA"
@@ -1249,7 +1249,7 @@ major 10
 minor 0
 release 0
 x 205
-y 150
+y 170
 w 65
 h 20
 controlPv "$(P):2:EMISSION"
@@ -1267,7 +1267,7 @@ major 10
 minor 0
 release 0
 x 285
-y 150
+y 170
 w 65
 h 20
 controlPv "$(P):3:EMISSION"
@@ -1285,7 +1285,7 @@ major 10
 minor 0
 release 0
 x 365
-y 150
+y 170
 w 65
 h 20
 controlPv "$(P):4:EMISSION"
@@ -1303,7 +1303,7 @@ major 4
 minor 1
 release 1
 x 15
-y 465
+y 485
 w 74
 h 18
 font "arial-medium-r-16.0"
@@ -1322,8 +1322,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 170
-y 450
+x 120
+y 470
 w 34
 h 13
 font "arial-bold-r-12.0"
@@ -1343,8 +1343,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 265
-y 450
+x 200
+y 470
 w 18
 h 13
 font "arial-bold-r-12.0"
@@ -1364,8 +1364,8 @@ beginObjectProperties
 major 4
 minor 1
 release 1
-x 350
-y 450
+x 275
+y 470
 w 50
 h 13
 font "arial-bold-r-12.0"
@@ -1385,8 +1385,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 175
-y 470
+x 125
+y 490
 w 25
 h 25
 controlPv "$(P):WATER"
@@ -1402,8 +1402,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 265
-y 470
+x 200
+y 490
 w 25
 h 25
 controlPv "$(P):WATER"
@@ -1419,8 +1419,8 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 360
-y 470
+x 285
+y 490
 w 25
 h 25
 controlPv "$(P):WATER"
@@ -1428,52 +1428,6 @@ lineColor index 14
 onColor index 15
 offColor index 20
 numBits 1
-endObjectProperties
-
-# (Static Text)
-object activeXTextClass
-beginObjectProperties
-major 4
-minor 1
-release 1
-x 15
-y 510
-w 97
-h 18
-font "arial-medium-r-16.0"
-fgColor index 14
-bgColor index 3
-useDisplayBg
-value {
-  "Temperature"
-}
-autoSize
-endObjectProperties
-
-# (Text Monitor)
-object activeXTextDspClass:noedit
-beginObjectProperties
-major 4
-minor 6
-release 0
-x 170
-y 510
-w 230
-h 20
-controlPv "$(P):TEMP"
-format "exponential"
-font "helvetica-medium-r-10.0"
-fontAlign "center"
-fgColor index 16
-fgAlarm
-bgColor index 10
-limitsFromDb
-nullColor index 30
-showUnits
-useAlarmBorder
-newPos
-objType "monitors"
-noExecuteClipMask
 endObjectProperties
 
 # (Related Display)
@@ -1552,5 +1506,165 @@ lineWidth 3
 visPv "$(P):DISABLE"
 visMin "0"
 visMax "1"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 125
+y 95
+w 65
+h 20
+controlPv "$(P):1:LABEL"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 205
+y 95
+w 65
+h 20
+controlPv "$(P):2:LABEL"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 285
+y 95
+w 65
+h 20
+controlPv "$(P):3:LABEL"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 365
+y 95
+w 65
+h 20
+controlPv "$(P):4:LABEL"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 360
+y 475
+w 70
+h 40
+fgColor index 14
+onColor index 3
+offColor index 3
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P):CLEAR_ERROR"
+pressValue "1"
+onLabel "Clear Error"
+offLabel "Clear Error"
+3d
+font "helvetica-medium-r-12.0"
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 340
+y 465
+w 0
+h 0
+lineColor index 14
+fillColor index 3
+numPoints 1
+xPoints {
+  0 340
+}
+yPoints {
+  0 465
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 105
+y 165
+w 0
+h 0
+lineColor index 14
+fillColor index 3
+numPoints 1
+xPoints {
+  0 105
+}
+yPoints {
+  0 165
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 345
+y 470
+w 0
+h 50
+lineColor index 14
+fillColor index 3
+numPoints 2
+xPoints {
+  0 345
+  1 345
+}
+yPoints {
+  0 470
+  1 520
+}
 endObjectProperties
 
