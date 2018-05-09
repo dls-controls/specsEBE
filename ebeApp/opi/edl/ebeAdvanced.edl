@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 635
-y 245
+x 1477
+y 75
 w 441
 h 371
 font "helvetica-medium-r-18.0"
@@ -593,6 +593,7 @@ y 70
 w 65
 h 20
 controlPv "$(P):1:FILAMENT_MAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -611,6 +612,7 @@ y 70
 w 65
 h 20
 controlPv "$(P):2:FILAMENT_MAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -629,6 +631,7 @@ y 70
 w 65
 h 20
 controlPv "$(P):3:FILAMENT_MAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -647,6 +650,7 @@ y 70
 w 65
 h 20
 controlPv "$(P):4:FILAMENT_MAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -665,6 +669,7 @@ y 120
 w 65
 h 20
 controlPv "$(P):1:EMISSION_MAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -683,6 +688,7 @@ y 210
 w 65
 h 20
 controlPv "$(P):1:FLUX_MAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -701,6 +707,7 @@ y 210
 w 65
 h 20
 controlPv "$(P):2:FLUX_MAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -719,6 +726,7 @@ y 210
 w 65
 h 20
 controlPv "$(P):3:FLUX_MAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -737,6 +745,7 @@ y 210
 w 65
 h 20
 controlPv "$(P):4:FLUX_MAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -781,6 +790,7 @@ y 265
 w 90
 h 20
 controlPv "$(P):VMAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -799,6 +809,7 @@ y 120
 w 65
 h 20
 controlPv "$(P):2:EMISSION_MAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -817,6 +828,7 @@ y 120
 w 65
 h 20
 controlPv "$(P):3:EMISSION_MAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -835,6 +847,7 @@ y 120
 w 65
 h 20
 controlPv "$(P):4:EMISSION_MAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -853,7 +866,7 @@ y 185
 w 65
 h 20
 controlPv "$(P):1:EMISSION_PMAX_RBV"
-format "decimal"
+format "exponential"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 16
@@ -879,7 +892,7 @@ y 185
 w 65
 h 20
 controlPv "$(P):2:EMISSION_PMAX_RBV"
-format "decimal"
+format "exponential"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 16
@@ -905,7 +918,7 @@ y 185
 w 65
 h 20
 controlPv "$(P):3:EMISSION_PMAX_RBV"
-format "decimal"
+format "exponential"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 16
@@ -931,7 +944,7 @@ y 185
 w 65
 h 20
 controlPv "$(P):4:EMISSION_PMAX_RBV"
-format "decimal"
+format "exponential"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 16
@@ -957,6 +970,7 @@ y 165
 w 65
 h 20
 controlPv "$(P):1:EMISSION_PMAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -975,6 +989,7 @@ y 165
 w 65
 h 20
 controlPv "$(P):2:EMISSION_PMAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -993,6 +1008,7 @@ y 165
 w 65
 h 20
 controlPv "$(P):3:EMISSION_PMAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -1011,6 +1027,7 @@ y 165
 w 65
 h 20
 controlPv "$(P):4:EMISSION_PMAX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3

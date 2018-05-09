@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 189
-y 245
+x 1025
+y 77
 w 442
 h 529
 font "helvetica-medium-r-18.0"
@@ -453,7 +453,7 @@ y 140
 w 65
 h 20
 controlPv "$(P):1:FILAMENT_RBV"
-format "decimal"
+format "exponential"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 16
@@ -479,7 +479,7 @@ y 140
 w 65
 h 20
 controlPv "$(P):2:FILAMENT_RBV"
-format "decimal"
+format "exponential"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 16
@@ -505,7 +505,7 @@ y 140
 w 65
 h 20
 controlPv "$(P):3:FILAMENT_RBV"
-format "decimal"
+format "exponential"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 16
@@ -531,7 +531,7 @@ y 140
 w 65
 h 20
 controlPv "$(P):4:FILAMENT_RBV"
-format "decimal"
+format "exponential"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
 fgColor index 16
@@ -577,6 +577,7 @@ y 120
 w 65
 h 20
 controlPv "$(P):1:FILAMENT"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -595,6 +596,7 @@ y 120
 w 65
 h 20
 controlPv "$(P):2:FILAMENT"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -613,6 +615,7 @@ y 120
 w 65
 h 20
 controlPv "$(P):3:FILAMENT"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -631,6 +634,7 @@ y 120
 w 65
 h 20
 controlPv "$(P):4:FILAMENT"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -649,6 +653,7 @@ y 170
 w 65
 h 20
 controlPv "$(P):1:EMISSION"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -667,6 +672,7 @@ y 240
 w 65
 h 20
 controlPv "$(P):1:FLUX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -685,6 +691,7 @@ y 240
 w 65
 h 20
 controlPv "$(P):2:FLUX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -703,6 +710,7 @@ y 240
 w 65
 h 20
 controlPv "$(P):3:FLUX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -721,6 +729,7 @@ y 240
 w 65
 h 20
 controlPv "$(P):4:FLUX"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -1253,6 +1262,7 @@ y 170
 w 65
 h 20
 controlPv "$(P):2:EMISSION"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -1271,6 +1281,7 @@ y 170
 w 65
 h 20
 controlPv "$(P):3:EMISSION"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
@@ -1289,6 +1300,7 @@ y 170
 w 65
 h 20
 controlPv "$(P):4:EMISSION"
+displayMode "exp"
 fgColor index 25
 fgAlarm
 bgColor index 3
