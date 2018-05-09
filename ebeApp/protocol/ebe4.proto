@@ -76,7 +76,7 @@ setInt {
    }
 }
 setDouble {
-   out "\$RequestTag SetParaValue \$1 %f";
+   out "\$RequestTag SetParaValue \$1 %.12f";
    in "\$ResponseTag SetParaValue OK";
    @mismatch {
       in "\$ResponseTag SetParaValue ERROR: %39c"
