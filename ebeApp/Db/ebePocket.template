@@ -164,6 +164,8 @@ record(ao, "$(P):$(POCKET):EMISSION") {
   field(DESC, "Filament current set")
   field(OUT, "@ebe4.proto setDouble($(EMISSION)) $(PORT) 0")
   field(PREC, 2)
+  field(LINR, "LINEAR")
+  field(ASLO, "1000")
 }
 #% gdatag,pv,rw,$(gda_name=),EMISSION_RBV
 #% archiver 10 Monitor
@@ -175,6 +177,8 @@ record(ai, "$(P):$(POCKET):EMISSION_RBV") {
   field(SCAN, "$(SCAN) second")
   field(PREC, 2)
   field(EGU, "mA")
+  field(LINR, "LINEAR")
+  field(ASLO, "1000")
 }
 
 # /// Emission Max
@@ -187,7 +191,7 @@ record(ao, "$(P):$(POCKET):EMISSION_MAX") {
   field(OUT, "@ebe4.proto setDouble($(EMISSION_MAX)) $(PORT) 0")
   field(PREC, 2)
   field(LINR, "LINEAR")
-  field(ESLO, "1000")
+  field(ASLO, "1000")
 }
 #% gdatag,pv,rw,$(gda_name=),EMISSION_MAX_RBV
 record(ai, "$(P):$(POCKET):EMISSION_MAX_RBV") {
@@ -199,7 +203,7 @@ record(ai, "$(P):$(POCKET):EMISSION_MAX_RBV") {
   field(PREC, 2)
   field(EGU, "mA")
   field(LINR, "LINEAR")
-  field(ESLO, "1000")
+  field(ASLO, "1000")
 }
 
 # /// Emission Max Power
@@ -294,7 +298,7 @@ record(ao, "$(P):$(POCKET):FLUX") {
   field(OUT, "@ebe4.proto setDouble($(FLUX)) $(PORT) 0")
   field(PREC, 2)
   field(LINR, "LINEAR")
-  field(ESLO, "1000000000")
+  field(ASLO, "1000000000")
 }
 #% gdatag,pv,rw,$(gda_name=),FLUX_RBV
 #% archiver 10 Monitor
@@ -307,7 +311,7 @@ record(ai, "$(P):$(POCKET):FLUX_RBV") {
   field(PREC, 2)
   field(EGU, "nA")
   field(LINR, "LINEAR")
-  field(ESLO, "1000000000")
+  field(ASLO, "1000000000")
 }
 
 # /// Flux Max
@@ -320,7 +324,7 @@ record(ao, "$(P):$(POCKET):FLUX_MAX") {
   field(OUT, "@ebe4.proto setDouble($(FLUX_MAX)) $(PORT) 0")
   field(PREC, 2)
   field(LINR, "LINEAR")
-  field(ESLO, "1000000000")
+  field(ASLO, "1000000000")
 }
 #% gdatag,pv,rw,$(gda_name=),FLUX_MAX_RBV
 record(ai, "$(P):$(POCKET):FLUX_MAX_RBV") {
@@ -332,7 +336,7 @@ record(ai, "$(P):$(POCKET):FLUX_MAX_RBV") {
   field(PREC, 2)
   field(EGU, "nA")
   field(LINR, "LINEAR")
-  field(ESLO, "1000000000")
+  field(ASLO, "1000000000")
 }
 
 # /// Flux PVal
