@@ -10,14 +10,11 @@
 #
 ################################################################
 
-#% gdatag,template,ebepocket,$(gda_name=),$(gda_desc=)
-
 ################################################################
 # Read Only records
 ################################################################
 
 # /// Emission Regulation Status
-#% gdatag,pv,ro,$(gda_name=),EMISSION_REG_STA
 #% archiver 10 Monitor
 record(mbbi, "$(P):$(POCKET):EMISSION_REG_STA") {
   field(DTYP, "stream")
@@ -33,7 +30,6 @@ record(mbbi, "$(P):$(POCKET):EMISSION_REG_STA") {
 }
 
 # /// Flux Regulation Status
-#% gdatag,pv,ro,$(gda_name=),FLUX_REG_STA
 #% archiver 10 Monitor
 record(mbbi, "$(P):$(POCKET):FLUX_REG_STA") {
   field(DTYP, "stream")
@@ -53,14 +49,12 @@ record(mbbi, "$(P):$(POCKET):FLUX_REG_STA") {
 ################################################################
 
 # /// Pocket Label
-#% gdatag,pv,rw,$(gda_name=),LABEL
 #% autosave 1 VAL
 record(stringout, "$(P):$(POCKET):LABEL") {
   field(DESC, "User label for pocket")
 }
 
 # /// Regulation Type
-#% gdatag,pv,rw,$(gda_name=),FILAMENT_REG_TYPE
 record(mbbo, "$(P):$(POCKET):FILAMENT_REG_TYPE") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -73,7 +67,6 @@ record(mbbo, "$(P):$(POCKET):FILAMENT_REG_TYPE") {
   field(TWVL, "2")
   field(TWST, "Flux")
 }
-#% gdatag,pv,rw,$(gda_name=),FILAMENT_REG_TYPE_RBV
 #% archiver 10 Monitor
 record(mbbi, "$(P):$(POCKET):FILAMENT_REG_TYPE_RBV") {
   field(DTYP, "stream")
@@ -92,7 +85,6 @@ record(mbbi, "$(P):$(POCKET):FILAMENT_REG_TYPE_RBV") {
 # Filament Parameters ##########################################
 
 # /// Filament Current
-#% gdatag,pv,rw,$(gda_name=),FILAMENT
 record(ao, "$(P):$(POCKET):FILAMENT") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -100,7 +92,6 @@ record(ao, "$(P):$(POCKET):FILAMENT") {
   field(OUT, "@ebe4.proto setDouble($(FILAMENT)) $(PORT) 0")
   field(PREC, 2)
 }
-#% gdatag,pv,rw,$(gda_name=),FILAMENT_RBV
 #% archiver 10 Monitor
 record(ai, "$(P):$(POCKET):FILAMENT_RBV") {
   field(DTYP, "stream")
@@ -113,7 +104,6 @@ record(ai, "$(P):$(POCKET):FILAMENT_RBV") {
 }
 
 # /// Filament Max
-#% gdatag,pv,rw,$(gda_name=),FILAMENT_MAX
 #% autosave 1 VAL
 record(ao, "$(P):$(POCKET):FILAMENT_MAX") {
   field(DTYP, "stream")
@@ -122,7 +112,6 @@ record(ao, "$(P):$(POCKET):FILAMENT_MAX") {
   field(OUT, "@ebe4.proto setDouble($(FILAMENT_MAX)) $(PORT) 0")
   field(PREC, 2)
 }
-#% gdatag,pv,rw,$(gda_name=),FILAMENT_MAX_RBV
 record(ai, "$(P):$(POCKET):FILAMENT_MAX_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -134,7 +123,6 @@ record(ai, "$(P):$(POCKET):FILAMENT_MAX_RBV") {
 }
 
 # /// Filament Standby Current
-#% gdatag,pv,rw,$(gda_name=),FILAMENT_STANDBY
 #% autosave 1 VAL
 record(ao, "$(P):$(POCKET):FILAMENT_STANDBY") {
   field(DTYP, "stream")
@@ -143,7 +131,6 @@ record(ao, "$(P):$(POCKET):FILAMENT_STANDBY") {
   field(OUT, "@ebe4.proto setDouble($(FILAMENT_STANDBY)) $(PORT) 0")
   field(PREC, 2)
 }
-#% gdatag,pv,rw,$(gda_name=),FILAMENT_STANDBY_RBV
 record(ai, "$(P):$(POCKET):FILAMENT_STANDBY_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -157,7 +144,6 @@ record(ai, "$(P):$(POCKET):FILAMENT_STANDBY_RBV") {
 # Emission Parameters ##########################################
 
 # /// Emission Current
-#% gdatag,pv,rw,$(gda_name=),EMISSION
 record(ao, "$(P):$(POCKET):EMISSION") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -167,7 +153,6 @@ record(ao, "$(P):$(POCKET):EMISSION") {
   field(LINR, "LINEAR")
   field(ASLO, "1000")
 }
-#% gdatag,pv,rw,$(gda_name=),EMISSION_RBV
 #% archiver 10 Monitor
 record(ai, "$(P):$(POCKET):EMISSION_RBV") {
   field(DTYP, "stream")
@@ -182,7 +167,6 @@ record(ai, "$(P):$(POCKET):EMISSION_RBV") {
 }
 
 # /// Emission Max
-#% gdatag,pv,rw,$(gda_name=),EMISSION_MAX
 #% autosave 1 VAL
 record(ao, "$(P):$(POCKET):EMISSION_MAX") {
   field(DTYP, "stream")
@@ -193,7 +177,6 @@ record(ao, "$(P):$(POCKET):EMISSION_MAX") {
   field(LINR, "LINEAR")
   field(ASLO, "1000")
 }
-#% gdatag,pv,rw,$(gda_name=),EMISSION_MAX_RBV
 record(ai, "$(P):$(POCKET):EMISSION_MAX_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -207,7 +190,6 @@ record(ai, "$(P):$(POCKET):EMISSION_MAX_RBV") {
 }
 
 # /// Emission Max Power
-#% gdatag,pv,rw,$(gda_name=),EMISSION_PMAX
 #% autosave 1 VAL
 record(ao, "$(P):$(POCKET):EMISSION_PMAX") {
   field(DTYP, "stream")
@@ -216,7 +198,6 @@ record(ao, "$(P):$(POCKET):EMISSION_PMAX") {
   field(OUT, "@ebe4.proto setDouble($(EMISSION_PMAX)) $(PORT) 0")
   field(PREC, 2)
 }
-#% gdatag,pv,rw,$(gda_name=),EMISSION_PMAX_RBV
 record(ai, "$(P):$(POCKET):EMISSION_PMAX_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -228,7 +209,6 @@ record(ai, "$(P):$(POCKET):EMISSION_PMAX_RBV") {
 }
 
 # /// Emission PVal
-#% gdatag,pv,rw,$(gda_name=),EMISSION_PVAL
 #% autosave 1 VAL
 record(ao, "$(P):$(POCKET):EMISSION_PVAL") {
   field(DTYP, "stream")
@@ -237,7 +217,6 @@ record(ao, "$(P):$(POCKET):EMISSION_PVAL") {
   field(OUT, "@ebe4.proto setDouble($(EMISSION_PVAL)) $(PORT) 0")
   field(PREC, 2)
 }
-#% gdatag,pv,rw,$(gda_name=),EMISSION_PVAL_RBV
 record(ai, "$(P):$(POCKET):EMISSION_PVAL_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -248,7 +227,6 @@ record(ai, "$(P):$(POCKET):EMISSION_PVAL_RBV") {
 }
 
 # /// Emission IVal
-#% gdatag,pv,rw,$(gda_name=),EMISSION_IVAL
 #% autosave 1 VAL
 record(ao, "$(P):$(POCKET):EMISSION_IVAL") {
   field(DTYP, "stream")
@@ -257,7 +235,6 @@ record(ao, "$(P):$(POCKET):EMISSION_IVAL") {
   field(OUT, "@ebe4.proto setDouble($(EMISSION_IVAL)) $(PORT) 0")
   field(PREC, 2)
 }
-#% gdatag,pv,rw,$(gda_name=),EMISSION_IVAL_RBV
 record(ai, "$(P):$(POCKET):EMISSION_IVAL_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -268,7 +245,6 @@ record(ai, "$(P):$(POCKET):EMISSION_IVAL_RBV") {
 }
 
 # /// Emission Time Base
-#% gdatag,pv,rw,$(gda_name=),EMISSION_TIME_BASE
 #% autosave 1 VAL
 record(ao, "$(P):$(POCKET):EMISSION_TIME_BASE") {
   field(DTYP, "stream")
@@ -277,7 +253,6 @@ record(ao, "$(P):$(POCKET):EMISSION_TIME_BASE") {
   field(OUT, "@ebe4.proto setDouble($(EMISSION_TIME_BASE)) $(PORT) 0")
   field(PREC, 2)
 }
-#% gdatag,pv,rw,$(gda_name=),EMISSION_TIME_BASE_RBV
 record(ai, "$(P):$(POCKET):EMISSION_TIME_BASE_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -290,7 +265,6 @@ record(ai, "$(P):$(POCKET):EMISSION_TIME_BASE_RBV") {
 # Flux Parameters ##############################################
 
 # /// Flux
-#% gdatag,pv,rw,$(gda_name=),FLUX
 record(ao, "$(P):$(POCKET):FLUX") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -300,7 +274,6 @@ record(ao, "$(P):$(POCKET):FLUX") {
   field(LINR, "LINEAR")
   field(ASLO, "1000000000")
 }
-#% gdatag,pv,rw,$(gda_name=),FLUX_RBV
 #% archiver 10 Monitor
 record(ai, "$(P):$(POCKET):FLUX_RBV") {
   field(DTYP, "stream")
@@ -315,7 +288,6 @@ record(ai, "$(P):$(POCKET):FLUX_RBV") {
 }
 
 # /// Flux Max
-#% gdatag,pv,rw,$(gda_name=),FLUX_MAX
 #% autosave 1 VAL
 record(ao, "$(P):$(POCKET):FLUX_MAX") {
   field(DTYP, "stream")
@@ -326,7 +298,6 @@ record(ao, "$(P):$(POCKET):FLUX_MAX") {
   field(LINR, "LINEAR")
   field(ASLO, "1000000000")
 }
-#% gdatag,pv,rw,$(gda_name=),FLUX_MAX_RBV
 record(ai, "$(P):$(POCKET):FLUX_MAX_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -340,7 +311,6 @@ record(ai, "$(P):$(POCKET):FLUX_MAX_RBV") {
 }
 
 # /// Flux PVal
-#% gdatag,pv,rw,$(gda_name=),FLUX_PVAL
 #% autosave 1 VAL
 record(ao, "$(P):$(POCKET):FLUX_PVAL") {
   field(DTYP, "stream")
@@ -349,7 +319,6 @@ record(ao, "$(P):$(POCKET):FLUX_PVAL") {
   field(OUT, "@ebe4.proto setDouble($(FLUX_PVAL)) $(PORT) 0")
   field(PREC, 2)
 }
-#% gdatag,pv,rw,$(gda_name=),FLUX_PVAL_RBV
 record(ai, "$(P):$(POCKET):FLUX_PVAL_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -360,7 +329,6 @@ record(ai, "$(P):$(POCKET):FLUX_PVAL_RBV") {
 }
 
 # /// Flux IVal
-#% gdatag,pv,rw,$(gda_name=),FLUX_IVAL
 #% autosave 1 VAL
 record(ao, "$(P):$(POCKET):FLUX_IVAL") {
   field(DTYP, "stream")
@@ -369,7 +337,6 @@ record(ao, "$(P):$(POCKET):FLUX_IVAL") {
   field(OUT, "@ebe4.proto setDouble($(FLUX_IVAL)) $(PORT) 0")
   field(PREC, 2)
 }
-#% gdatag,pv,rw,$(gda_name=),FLUX_IVAL_RBV
 record(ai, "$(P):$(POCKET):FLUX_IVAL_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -380,7 +347,6 @@ record(ai, "$(P):$(POCKET):FLUX_IVAL_RBV") {
 }
 
 # /// Flux Time Base
-#% gdatag,pv,rw,$(gda_name=),FLUX_TIME_BASE
 #% autosave 1 VAL
 record(ao, "$(P):$(POCKET):FLUX_TIME_BASE") {
   field(DTYP, "stream")
@@ -389,7 +355,6 @@ record(ao, "$(P):$(POCKET):FLUX_TIME_BASE") {
   field(OUT, "@ebe4.proto setDouble($(FLUX_TIME_BASE)) $(PORT) 0")
   field(PREC, 2)
 }
-#% gdatag,pv,rw,$(gda_name=),FLUX_TIME_BASE_RBV
 record(ai, "$(P):$(POCKET):FLUX_TIME_BASE_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")

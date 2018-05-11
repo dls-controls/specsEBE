@@ -14,7 +14,6 @@
 # % gui, $(PORT), edm, ebe4.edl, P=$(P)
 
 # /// Disable communication - Stop errors when device is not connected
-#% gdatag,template,ebe4,$(gda_name=),$(gda_desc=)
 record(bo, "$(P):DISABLE") {
   field(DESC, "Disable communication")
   field(PINI, "YES")
@@ -47,7 +46,6 @@ record(ai, "$(P):UPTIME") {
 }
 
 # /// Water interlock
-#% gdatag,pv,ro,$(gda_name=),WATER
 #% archiver 10 Monitor
 #% alh
 record(bi, "$(P):WATER") {
@@ -61,7 +59,6 @@ record(bi, "$(P):WATER") {
 }
 
 # /// IL2 interlock
-#% gdatag,pv,ro,$(gda_name=),IL2
 #% archiver 10 Monitor
 #% alh
 record(bi, "$(P):IL2") {
@@ -75,7 +72,6 @@ record(bi, "$(P):IL2") {
 }
 
 # /// Vacuum interlock
-#% gdatag,pv,ro,$(gda_name=),VACUUM
 #% archiver 10 Monitor
 #% alh
 record(bi, "$(P):VACUUM") {
@@ -89,7 +85,6 @@ record(bi, "$(P):VACUUM") {
 }
 
 # /// High voltage supply current
-#% gdatag,pv,ro,$(gda_name=),IMON
 #% archiver 10 Monitor
 record(ai, "$(P):IMON") {
   field(DTYP, "stream")
@@ -105,7 +100,6 @@ record(ai, "$(P):IMON") {
 ################################################################
 
 # /// Set remote mode
-#% gdatag,pv,rw,$(gda_name=),MODE
 record(bo, "$(P):MODE") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -117,7 +111,6 @@ record(bo, "$(P):MODE") {
 }
 
 # /// Clear error status
-#% gdatag,pv,rw,$(gda_name=),CLEAR_ERROR
 record(bo, "$(P):CLEAR_ERROR") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -126,14 +119,12 @@ record(bo, "$(P):CLEAR_ERROR") {
 }
 
 # /// High voltage
-#% gdatag,pv,rw,$(gda_name=),VOUT
 record(ao, "$(P):VOUT") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "High voltage set")
   field(OUT, "@ebe4.proto setDouble(17) $(PORT) 0")
 }
-#% gdatag,pv,ro,$(gda_name=),VMON
 #% archiver 10 Monitor
 record(ai, "$(P):VMON") {
   field(DTYP, "stream")
@@ -145,7 +136,6 @@ record(ai, "$(P):VMON") {
 }
 
 # /// Maximum voltage
-#% gdatag,pv,rw,$(gda_name=),VMAX
 #% autosave 1 VAL
 record(ao, "$(P):VMAX") {
   field(DTYP, "stream")
@@ -154,7 +144,6 @@ record(ao, "$(P):VMAX") {
   field(OUT, "@ebe4.proto setDouble(21) $(PORT) 0")
   field(PREC, 2)
 }
-#% gdatag,pv,rw,$(gda_name=),VMAX_RBV
 record(ai, "$(P):VMAX_RBV") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -167,7 +156,6 @@ record(ai, "$(P):VMAX_RBV") {
 }
 
 # /// Enable/Disable high voltage supply
-#% gdatag,pv,rw,$(gda_name=),VSTA
 record(bo, "$(P):VSTATE") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -176,7 +164,6 @@ record(bo, "$(P):VSTATE") {
   field(ZNAM, "Off")
   field(ONAM, "On")
 }
-#% gdatag,pv,rw,$(gda_name=),VSTA_RBV
 #% archiver 10 Monitor
 record(bi, "$(P):VSTATE_RBV") {
   field(DTYP, "stream")
@@ -189,7 +176,6 @@ record(bi, "$(P):VSTATE_RBV") {
 }
 
 # /// Shutter position
-#% gdatag,pv,rw,$(gda_name=),SHUTTER
 record(mbbo, "$(P):SHUTTER") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -206,7 +192,6 @@ record(mbbo, "$(P):SHUTTER") {
   field(FRST, "All Open")
   field(FRVL, "4")
 }
-#% gdatag,pv,rw,$(gda_name=),SHUTTER_RBV
 #% archiver 10 Monitor
 record(mbbi, "$(P):SHUTTER_RBV") {
   field(DTYP, "stream")
@@ -232,7 +217,6 @@ record(mbbi, "$(P):SHUTTER_RBV") {
 
 # /// Generic commands
 # Do a caput on this, and do a subsequent caget to get the response. Max 39 chars.
-#% gdatag,pv,rw,$(gda_name=),RESPONSE
 record(stringin, "$(P):RESPONSE") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
@@ -241,7 +225,6 @@ record(stringin, "$(P):RESPONSE") {
 }
 
 # /// Generic command. This holds the command and stores it
-#% gdatag,pv,rw,$(gda_name=),COMMAND
 record(stringout, "$(P):COMMAND") {
   field(DESC, "Holds command string.")
   field(OUT, "$(P):RESPONSE")
