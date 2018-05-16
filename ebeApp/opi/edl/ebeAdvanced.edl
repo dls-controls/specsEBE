@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1477
-y 75
+x 1162
+y 118
 w 441
 h 371
 font "helvetica-medium-r-18.0"
@@ -200,14 +200,14 @@ minor 1
 release 1
 x 5
 y 75
-w 94
+w 86
 h 16
 font "arial-bold-r-14.0"
 fgColor index 10
 bgColor index 3
 useDisplayBg
 value {
-  "Filament Max"
+  "Current Max"
 }
 autoSize
 endObjectProperties
@@ -488,7 +488,7 @@ x 125
 y 90
 w 65
 h 20
-controlPv "$(P):1:FILAMENT_MAX_RBV"
+controlPv "$(P):1:CURRENT_MAX_RBV"
 format "exponential"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
@@ -514,7 +514,7 @@ x 205
 y 90
 w 65
 h 20
-controlPv "$(P):2:FILAMENT_MAX_RBV"
+controlPv "$(P):2:CURRENT_MAX_RBV"
 format "exponential"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
@@ -540,7 +540,7 @@ x 285
 y 90
 w 65
 h 20
-controlPv "$(P):3:FILAMENT_MAX_RBV"
+controlPv "$(P):3:CURRENT_MAX_RBV"
 format "exponential"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
@@ -566,7 +566,7 @@ x 365
 y 90
 w 65
 h 20
-controlPv "$(P):4:FILAMENT_MAX_RBV"
+controlPv "$(P):4:CURRENT_MAX_RBV"
 format "exponential"
 font "helvetica-medium-r-10.0"
 fontAlign "center"
@@ -592,7 +592,7 @@ x 125
 y 70
 w 65
 h 20
-controlPv "$(P):1:FILAMENT_MAX"
+controlPv "$(P):1:CURRENT_MAX"
 displayMode "exp"
 fgColor index 25
 fgAlarm
@@ -611,7 +611,7 @@ x 205
 y 70
 w 65
 h 20
-controlPv "$(P):2:FILAMENT_MAX"
+controlPv "$(P):2:CURRENT_MAX"
 displayMode "exp"
 fgColor index 25
 fgAlarm
@@ -630,7 +630,7 @@ x 285
 y 70
 w 65
 h 20
-controlPv "$(P):3:FILAMENT_MAX"
+controlPv "$(P):3:CURRENT_MAX"
 displayMode "exp"
 fgColor index 25
 fgAlarm
@@ -649,7 +649,7 @@ x 365
 y 70
 w 65
 h 20
-controlPv "$(P):4:FILAMENT_MAX"
+controlPv "$(P):4:CURRENT_MAX"
 displayMode "exp"
 fgColor index 25
 fgAlarm
