@@ -61,7 +61,7 @@ record(mbbo, "$(P):$(POCKET):FILAMENT_REG_TYPE") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Regulation type set")
-  field(OUT, "@ebe4.proto setInt($(FILAMENT_REG_TYPE)) $(PORT) 0")
+  field(OUT, "@ebe4.proto setInt($(FILAMENT_REG_TYPE),$(P)) $(PORT) 0")
   field(ZRVL, "0")
   field(ZRST, "Current")
   field(ONVL, "1")
@@ -91,7 +91,7 @@ record(ao, "$(P):$(POCKET):CURRENT") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament current set")
-  field(OUT, "@ebe4.proto setDouble($(FILAMENT)) $(PORT) 0")
+  field(OUT, "@ebe4.proto setDouble($(FILAMENT),$(P)) $(PORT) 0")
   field(PREC, 2)
 }
 #% archiver 10 Monitor
@@ -111,7 +111,7 @@ record(ao, "$(P):$(POCKET):CURRENT_MAX") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament max current set")
-  field(OUT, "@ebe4.proto setDouble($(FILAMENT_MAX)) $(PORT) 0")
+  field(OUT, "@ebe4.proto setDouble($(FILAMENT_MAX),$(P)) $(PORT) 0")
   field(PREC, 2)
 }
 record(ai, "$(P):$(POCKET):CURRENT_MAX_RBV") {
@@ -130,7 +130,7 @@ record(ao, "$(P):$(POCKET):CURRENT_STANDBY") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament standby current set")
-  field(OUT, "@ebe4.proto setDouble($(FILAMENT_STANDBY)) $(PORT) 0")
+  field(OUT, "@ebe4.proto setDouble($(FILAMENT_STANDBY),$(P)) $(PORT) 0")
   field(PREC, 2)
 }
 record(ai, "$(P):$(POCKET):CURRENT_STANDBY_RBV") {
@@ -150,7 +150,7 @@ record(ao, "$(P):$(POCKET):EMISSION") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament emission set")
-  field(OUT, "@ebe4.proto setDouble($(EMISSION)) $(PORT) 0")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION),$(P)) $(PORT) 0")
   field(PREC, 2)
   field(LINR, "LINEAR")
   field(ASLO, "1000")
@@ -174,7 +174,7 @@ record(ao, "$(P):$(POCKET):EMISSION_MAX") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament emission max set")
-  field(OUT, "@ebe4.proto setDouble($(EMISSION_MAX)) $(PORT) 0")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION_MAX),$(P)) $(PORT) 0")
   field(PREC, 2)
   field(LINR, "LINEAR")
   field(ASLO, "1000")
@@ -197,7 +197,7 @@ record(ao, "$(P):$(POCKET):EMISSION_PMAX") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament emission max power set")
-  field(OUT, "@ebe4.proto setDouble($(EMISSION_PMAX)) $(PORT) 0")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION_PMAX),$(P)) $(PORT) 0")
   field(PREC, 2)
 }
 record(ai, "$(P):$(POCKET):EMISSION_PMAX_RBV") {
@@ -216,7 +216,7 @@ record(ao, "$(P):$(POCKET):EMISSION_PVAL") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament emission PVal set")
-  field(OUT, "@ebe4.proto setDouble($(EMISSION_PVAL)) $(PORT) 0")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION_PVAL),$(P)) $(PORT) 0")
   field(PREC, 2)
 }
 record(ai, "$(P):$(POCKET):EMISSION_PVAL_RBV") {
@@ -234,7 +234,7 @@ record(ao, "$(P):$(POCKET):EMISSION_IVAL") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament emission IVal set")
-  field(OUT, "@ebe4.proto setDouble($(EMISSION_IVAL)) $(PORT) 0")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION_IVAL),$(P)) $(PORT) 0")
   field(PREC, 2)
 }
 record(ai, "$(P):$(POCKET):EMISSION_IVAL_RBV") {
@@ -252,7 +252,7 @@ record(ao, "$(P):$(POCKET):EMISSION_TIME_BASE") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament emission time base set")
-  field(OUT, "@ebe4.proto setDouble($(EMISSION_TIME_BASE)) $(PORT) 0")
+  field(OUT, "@ebe4.proto setDouble($(EMISSION_TIME_BASE),$(P)) $(PORT) 0")
   field(PREC, 2)
 }
 record(ai, "$(P):$(POCKET):EMISSION_TIME_BASE_RBV") {
@@ -271,7 +271,7 @@ record(ao, "$(P):$(POCKET):FLUX") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament flux set")
-  field(OUT, "@ebe4.proto setDouble($(FLUX)) $(PORT) 0")
+  field(OUT, "@ebe4.proto setDouble($(FLUX),$(P)) $(PORT) 0")
   field(PREC, 2)
   field(LINR, "LINEAR")
   field(ASLO, "1000000000")
@@ -295,7 +295,7 @@ record(ao, "$(P):$(POCKET):FLUX_MAX") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament flux max set")
-  field(OUT, "@ebe4.proto setDouble($(FLUX_MAX)) $(PORT) 0")
+  field(OUT, "@ebe4.proto setDouble($(FLUX_MAX),$(P)) $(PORT) 0")
   field(PREC, 2)
   field(LINR, "LINEAR")
   field(ASLO, "1000000000")
@@ -318,7 +318,7 @@ record(ao, "$(P):$(POCKET):FLUX_PVAL") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament flux PVal set")
-  field(OUT, "@ebe4.proto setDouble($(FLUX_PVAL)) $(PORT) 0")
+  field(OUT, "@ebe4.proto setDouble($(FLUX_PVAL),$(P)) $(PORT) 0")
   field(PREC, 2)
 }
 record(ai, "$(P):$(POCKET):FLUX_PVAL_RBV") {
@@ -336,7 +336,7 @@ record(ao, "$(P):$(POCKET):FLUX_IVAL") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament flux IVal set")
-  field(OUT, "@ebe4.proto setDouble($(FLUX_IVAL)) $(PORT) 0")
+  field(OUT, "@ebe4.proto setDouble($(FLUX_IVAL),$(P)) $(PORT) 0")
   field(PREC, 2)
 }
 record(ai, "$(P):$(POCKET):FLUX_IVAL_RBV") {
@@ -354,7 +354,7 @@ record(ao, "$(P):$(POCKET):FLUX_TIME_BASE") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Filament flux time base set")
-  field(OUT, "@ebe4.proto setDouble($(FLUX_TIME_BASE)) $(PORT) 0")
+  field(OUT, "@ebe4.proto setDouble($(FLUX_TIME_BASE),$(P)) $(PORT) 0")
   field(PREC, 2)
 }
 record(ai, "$(P):$(POCKET):FLUX_TIME_BASE_RBV") {

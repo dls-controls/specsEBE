@@ -104,7 +104,7 @@ record(bo, "$(P):MODE") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Remote mode set")
-  field(OUT, "@ebe4.proto setRemoteMode $(PORT) 0")
+  field(OUT, "@ebe4.proto setRemoteMode($(P)) $(PORT) 0")
   field(ZNAM, "Local")
   field(ONAM, "Remote")
   field(VAL, "1")
@@ -115,7 +115,7 @@ record(bo, "$(P):CLEAR_ERROR") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Clear error status")
-  field(OUT, "@ebe4.proto setClearError $(PORT) 0")
+  field(OUT, "@ebe4.proto setClearError($(P)) $(PORT) 0")
 }
 
 # /// High voltage
@@ -123,7 +123,7 @@ record(ao, "$(P):VOUT") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "High voltage set")
-  field(OUT, "@ebe4.proto setDouble(17) $(PORT) 0")
+  field(OUT, "@ebe4.proto setDouble(17,$(P)) $(PORT) 0")
 }
 #% archiver 10 Monitor
 record(ai, "$(P):VMON") {
@@ -141,7 +141,7 @@ record(ao, "$(P):VMAX") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "High voltage limit set")
-  field(OUT, "@ebe4.proto setDouble(21) $(PORT) 0")
+  field(OUT, "@ebe4.proto setDouble(21,$(P)) $(PORT) 0")
   field(PREC, 2)
 }
 record(ai, "$(P):VMAX_RBV") {
@@ -160,7 +160,7 @@ record(bo, "$(P):VSTATE") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "High voltage enable/disable")
-  field(OUT, "@ebe4.proto setInt(23) $(PORT) 0")
+  field(OUT, "@ebe4.proto setInt(23,$(P)) $(PORT) 0")
   field(ZNAM, "Off")
   field(ONAM, "On")
 }
@@ -180,7 +180,7 @@ record(mbbo, "$(P):SHUTTER") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Shutter position")
-  field(OUT, "@ebe4.proto setInt(128) $(PORT) 0")
+  field(OUT, "@ebe4.proto setInt(128,$(P)) $(PORT) 0")
   field(ZRVL, "0")
   field(ZRST, "1, 2 & 4 Open")
   field(ONVL, "1")
@@ -218,15 +218,13 @@ record(mbbi, "$(P):SHUTTER_RBV") {
 # /// Generic commands
 # Do a caput on this, and do a subsequent caget to get the response. Max 39 chars.
 record(stringin, "$(P):RESPONSE") {
-  field(DTYP, "stream")
-  field(SDIS, "$(P):DISABLE")
   field(DESC, "Holds command response.")
-  field(INP, "@ebe4.proto gen $(PORT) 0")
 }
 
 # /// Generic command. This holds the command and stores it
 record(stringout, "$(P):COMMAND") {
+  field(DTYP, "stream")
   field(DESC, "Holds command string.")
-  field(OUT, "$(P):RESPONSE")
-  field(FLNK, "$(P):RESPONSE")
+  field(SDIS, "$(P):DISABLE")
+  field(OUT, "@ebe4.proto gen($(P)) $(PORT) 0")
 }

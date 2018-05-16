@@ -72,21 +72,21 @@ setInt {
    out "\$RequestTag SetParaValue \$1 %d";
    in "\$ResponseTag SetParaValue OK";
    @mismatch {
-      in "\$ResponseTag SetParaValue ERROR: %39c"
+      in "\$ResponseTag SetParaValue ERROR: %(\$2:RESPONSE)39c";
    }
 }
 setDouble {
    out "\$RequestTag SetParaValue \$1 %.12f";
    in "\$ResponseTag SetParaValue OK";
    @mismatch {
-      in "\$ResponseTag SetParaValue ERROR: %39c"
+      in "\$ResponseTag SetParaValue ERROR: %(\$2:RESPONSE)39c";
    }
 }
 setString {
    out "\$RequestTag SetParaValue \$1 %s";
    in "\$ResponseTag SetParaValue OK";
    @mismatch {
-      in "\$ResponseTag SetParaValue ERROR: %39c"
+      in "\$ResponseTag SetParaValue ERROR: %(\$2:RESPONSE)39c";
    }
 }
 
@@ -96,16 +96,16 @@ setRemoteMode {
    out "\$RequestTag SetRemoteMode %u";
    in "\$ResponseTag SetRemoteMode OK";
    @mismatch {
-      in "\$ResponseTag SetRemoteMode ERROR: %39c"
+      in "\$ResponseTag SetRemoteMode ERROR: %(\$1:RESPONSE)39c";
    }
 }
 
 # /// Clear error status
 setClearError {
-   out "\$RequestTag SetClearError"
+   out "\$RequestTag SetClearError";
    in "\$ResponseTag SetClearError OK";
    @mismatch {
-      in "\$ResponseTag SetClearError ERROR: %39c"
+      in "\$ResponseTag SetClearError ERROR: %(\$1:RESPONSE)39c";
    }
 }
 
@@ -117,8 +117,5 @@ setClearError {
 # /// Use this to send any command and get back the response (max 39 chars).
 gen {
    out "\$RequestTag %s";
-   in "\$ResponseTag %39c";
-   @mismatch {
-      in "\$ResponseTag %s %39c"
-   }
+   in "\$ResponseTag %(\$1:RESPONSE)39c"
 }
