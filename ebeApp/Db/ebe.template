@@ -184,13 +184,13 @@ record(mbbo, "$(P):SHUTTER") {
   field(ZRVL, "0")
   field(ZRST, "1, 2 & 4 Open")
   field(ONVL, "1")
-  field(ONST, "All Closed")
+  field(ONST, "Pocket 2 Open")
   field(TWVL, "2")
-  field(TWST, "2 & 3 Open")
+  field(TWST, "All Closed")
   field(THVL, "3")
-  field(THST, "1, 2 & 3 Open")
-  field(FRST, "All Open")
+  field(THST, "1 & 4 Open")
   field(FRVL, "4")
+  field(FRST, "1, 2 & 4 Open")
 }
 #% archiver 10 Monitor
 record(mbbi, "$(P):SHUTTER_RBV") {
@@ -202,13 +202,13 @@ record(mbbi, "$(P):SHUTTER_RBV") {
   field(ZRVL, "0")
   field(ZRST, "1, 2 & 4 Open")
   field(ONVL, "1")
-  field(ONST, "All Closed")
+  field(ONST, "Pocket 2 Open")
   field(TWVL, "2")
-  field(TWST, "2 & 3 Open")
+  field(TWST, "All Closed")
   field(THVL, "3")
-  field(THST, "1, 2 & 3 Open")
-  field(FRST, "All Open")
+  field(THST, "1 & 4 Open")
   field(FRVL, "4")
+  field(FRST, "1, 2 & 4 Open")
 }
 
 #################################################################
