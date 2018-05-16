@@ -89,7 +89,7 @@ record(bi, "$(P):VACUUM") {
 record(ai, "$(P):IMON") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
-  field(INP, "@ebe4.proto getInt(18) $(PORT) 0")
+  field(INP, "@ebe4.proto getDouble(18) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(PREC, 2)
   field(EGU, "A")
@@ -129,7 +129,7 @@ record(ao, "$(P):VOUT") {
 record(ai, "$(P):VMON") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
-  field(INP, "@ebe4.proto getInt(19) $(PORT) 0")
+  field(INP, "@ebe4.proto getDouble(19) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(PREC, 2)
   field(EGU, "V")
