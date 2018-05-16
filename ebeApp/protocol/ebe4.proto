@@ -119,6 +119,6 @@ gen {
    out "\$RequestTag %s";
    in "\$ResponseTag %39c";
    @mismatch {
-      in "%39c"
+      in "\$ResponseTag %s %39c"
    }
 }
