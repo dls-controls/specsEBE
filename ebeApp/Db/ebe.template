@@ -182,7 +182,7 @@ record(mbbo, "$(P):SHUTTER") {
   field(DESC, "Shutter position")
   field(OUT, "@ebe4.proto setInt(128,$(P)) $(PORT) 0")
   field(ZRVL, "0")
-  field(ZRST, "1, 2 & 4 Open")
+  field(ZRST, "1, 2 & 3 Open")
   field(ONVL, "1")
   field(ONST, "Pocket 2 Open")
   field(TWVL, "2")
@@ -191,6 +191,8 @@ record(mbbo, "$(P):SHUTTER") {
   field(THST, "1 & 4 Open")
   field(FRVL, "4")
   field(FRST, "1, 2 & 4 Open")
+  field(FVVL, "5")
+  field(FVST, "All Open")
 }
 #% archiver 10 Monitor
 record(mbbi, "$(P):SHUTTER_RBV") {
@@ -200,7 +202,7 @@ record(mbbi, "$(P):SHUTTER_RBV") {
   field(INP, "@ebe4.proto getInt(128) $(PORT) 0")
   field(SCAN, "$(SCAN) second")
   field(ZRVL, "0")
-  field(ZRST, "1, 2 & 4 Open")
+  field(ZRST, "1, 2 & 3 Open")
   field(ONVL, "1")
   field(ONST, "Pocket 2 Open")
   field(TWVL, "2")
@@ -209,6 +211,8 @@ record(mbbi, "$(P):SHUTTER_RBV") {
   field(THST, "1 & 4 Open")
   field(FRVL, "4")
   field(FRST, "1, 2 & 4 Open")
+  field(FVVL, "5")
+  field(FVST, "All Open")
 }
 
 #################################################################
