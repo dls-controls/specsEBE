@@ -123,10 +123,36 @@ record(bo, "$(P):CLEAR_ERROR") {
   field(OUT, "@ebe4.proto setClearError($(P)) $(PORT) 0")
 }
 
+# VOUT_SDIS exists so that we can disable setting the HV level based on multiple inputs.
+# We don't allow setting the HV level if it is not already toggled on, otherwise the device would
+# switch it on and not report it properly. We also want to override this with the comms DISABLE PV.
+#
+# Logic:
+#
+# if DISABLE = 1
+#     // Comms disabled - disable
+#     return 1
+# else
+#     if VSTATE = 1
+#         // Comms enabled and HV on - enable
+#         return 0
+#     else
+#         // Comms enabled, but HV not on, so we don't want to set level - disable
+#         return 1
+#
+# Put CP on calc INPX fields so that they monitor and update constantly
+# Put PP on VOUT:SDIS so that VOUT_SDIS is processed each time the value is read in
+
+# /// SDIS for VOUT
+record(calc, "$(P):VOUT_SDIS") {
+  field(INPA, "$(P):DISABLE CP")
+  field(INPB, "$(P):VSTATE CP")
+  field(CALC, "A=1?1:B=1?0:1")
+}
 # /// High voltage
 record(ao, "$(P):VOUT") {
   field(DTYP, "stream")
-  field(SDIS, "$(P):DISABLE")
+  field(SDIS, "$(P):VOUT_SDIS PP")
   field(DESC, "High voltage set")
   field(OUT, "@ebe4.proto setDouble(17,$(P)) $(PORT) 0")
 }
