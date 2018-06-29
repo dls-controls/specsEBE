@@ -6,5 +6,6 @@ DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *App))
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *app))
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard iocBoot))
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard iocboot))
-#DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard documentation))
+DIRS := $(DIRS) $(filter-out $(DIRS), etc)
+DIRS := $(DIRS) $(filter-out $(DIRS), iocs)
 include $(TOP)/configure/RULES_TOP
