@@ -109,6 +109,15 @@ setClearError {
    }
 }
 
+# /// Reset error flags
+# Specs suggested using this instead of SetClearError, but this is not in the manual
+resetErrorFlags {
+   out "\$RequestTag ResetErrorFlags";
+   in "\$ResponseTag ResetErrorFlags OK";
+   @mismatch {
+      in "\$ResponseTag ResetErrorFlags ERROR: %(\$1:RESPONSE)39c";
+   }
+}
 
 #############################################################
 # Generic protocol

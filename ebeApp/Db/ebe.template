@@ -128,7 +128,7 @@ record(bo, "$(P):CLEAR_ERROR") {
   field(DTYP, "stream")
   field(SDIS, "$(P):DISABLE")
   field(DESC, "Clear error status")
-  field(OUT, "@ebe4.proto setClearError($(P)) $(PORT) 0")
+  field(OUT, "@ebe4.proto resetErrorFlags($(P)) $(PORT) 0")
 }
 
 # VOUT_SDIS exists so that we can disable setting the HV level based on multiple inputs.
