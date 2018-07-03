@@ -111,6 +111,7 @@ record(ai, "$(P):$(POCKET):CURRENT_RBV") {
   field(SCAN, "$(SCAN) second")
   field(PREC, 2)
   field(EGU, "A")
+  field(ADEL, 0.001)
 }
 
 # /// Filament Max
@@ -174,6 +175,7 @@ record(ai, "$(P):$(POCKET):EMISSION_RBV") {
   field(EGU, "mA")
   field(LINR, "LINEAR")
   field(ASLO, "1000")
+  field(ADEL, 0.001)
 }
 
 # /// Emission Max
@@ -295,6 +297,7 @@ record(ai, "$(P):$(POCKET):FLUX_RBV") {
   field(EGU, "nA")
   field(LINR, "LINEAR")
   field(ASLO, "1000000000")
+  field(ADEL, 0.01)
 }
 
 # /// Flux Max

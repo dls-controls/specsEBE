@@ -105,6 +105,7 @@ record(ai, "$(P):IMON") {
   field(SCAN, "$(SCAN) second")
   field(PREC, 2)
   field(EGU, "A")
+  field(ADEL, 0.001)
 }
 
 ################################################################
@@ -171,6 +172,7 @@ record(ai, "$(P):VMON") {
   field(SCAN, "$(SCAN) second")
   field(PREC, 2)
   field(EGU, "V")
+  field(ADEL, 0.001)
 }
 
 # /// Maximum voltage
