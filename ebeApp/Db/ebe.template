@@ -5,9 +5,12 @@
 # Macros:
 #   P - Prefix for PV name
 #   PORT - Bus/Port Address (eg. ASYN Port).
-#   ADDR - Address on the bus (optional)
 #   SCAN - SCAN rate for read parameters.
 #
+################################################################
+
+################################################################
+# Builder Tags
 ################################################################
 
 # Macros:
@@ -17,6 +20,10 @@
 
 # This associates the template with an edm screen
 # % gui, $(PORT), edm, ebe4.edl, P=$(P)
+
+################################################################
+# Disable Record
+################################################################
 
 # /// Disable communication - Stop errors when device is not connected
 record(bo, "$(P):DISABLE") {

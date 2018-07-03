@@ -5,9 +5,12 @@
 # Macros:
 #   P - Prefix for PV name
 #   PORT - Bus/Port Address (eg. ASYN Port).
-#   ADDR - Address on the bus (optional)
 #   SCAN - SCAN rate for read parameters.
 #
+################################################################
+
+################################################################
+# Builder Tags
 ################################################################
 
 # Macros:
