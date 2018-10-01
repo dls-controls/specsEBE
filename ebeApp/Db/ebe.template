@@ -20,6 +20,7 @@
 
 # This associates the template with an edm screen
 # % gui, $(PORT), edm, ebe4.edl, P=$(P)
+# % gui, $(name=), boydetail, ebeApp_opi/ebe4.opi, P=$(P)
 
 ################################################################
 # Disable Record
